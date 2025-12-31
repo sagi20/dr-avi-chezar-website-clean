@@ -59,6 +59,12 @@
                 destination = '/latarjet-procedure.html';
             } else if (path.includes('קרעים-בשרוול-המסובב')) {
                 destination = '/rotator-cuff-tears.html';
+            } else if (path.includes('שחיקת-הסחוס-במפרק')) {
+                destination = '/shoulder-osteoarthritis.html';
+            } else if (path.includes('קרע-ראש-ארוך-של-ביצפס')) {
+                destination = '/biceps-tear.html';
+            } else if (path.includes('שברים-בכתף-עצם-הזרוע')) {
+                destination = '/humerus-fracture.html';
             } else if (path.includes('קרע-בלברום-העליון') || path.includes('slap')) {
                 destination = '/slap-tear.html';
             } else if (path.includes('תפירת-לברום')) {
@@ -69,12 +75,16 @@
                 destination = '/fracture-fixation.html';
             } else if (path.includes('החלפת-מפרק-הפוכה')) {
                 destination = '/reverse-shoulder-replacement.html';
+            } else if (path.includes('החלפת-מפרק-חלקית')) {
+                destination = '/partial-shoulder-replacement.html';
             } else if (path.includes('פריקות-חוזרות')) { // Generic catch-all for instability if not specific surgery
                 destination = '/shoulder-instability.html';
             } else if (path.includes('מושגים')) {
                 destination = '/medical-terms.html';
             } else if (path.includes('אודות')) {
                 destination = '/dr-chezar.html';
+            } else if (path.includes('צור-קשר')) {
+                destination = '/index.html#contact';
             }
 
             // Perform Redirect

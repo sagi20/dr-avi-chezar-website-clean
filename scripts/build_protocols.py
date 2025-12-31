@@ -1,0 +1,410 @@
+import json
+import os
+import sys
+
+# Definition of categories for mapping
+CATEGORIES_MAP = {
+    'rotator-cuff': 'שרוול מסובב',
+    'instability-labrum': 'ייצוב ולברום',
+    'shoulder-replacement': 'החלפת מפרק',
+    'trauma-fracture': 'טראומה ושברים',
+    'other': 'אחר'
+}
+
+def generate_html(protocol):
+    # Prepare data
+    category_name = CATEGORIES_MAP.get(protocol['category'], 'כללי')
+    schema_data = {
+        "@context": "https://schema.org",
+        "@type": "MedicalWebPage",
+        "name": protocol['title'],
+        "description": protocol['shortDescription'],
+        "medicalAudience": "Patients",
+        "aspect": "Rehabilitation"
+    }
+    
+    # Generate Phases HTML
+    phases_html = ""
+    for idx, phase in enumerate(protocol['phases']):
+        goals_list = "".join([f"<li>{g}</li>" for g in phase['goals']])
+        exercises_list = "".join([f"<li>{e}</li>" for e in phase['exercises']])
+        warnings_block = ""
+        if 'warnings' in phase and phase['warnings']:
+            warnings_list = "".join([f"<li>{w}</li>" for w in phase['warnings']])
+            warnings_block = f"""
+                                    <div class="detail-section warning">
+                                        <h5><i data-lucide="alert-triangle"></i> אמצעי זהירות:</h5>
+                                        <ul>{warnings_list}</ul>
+                                    </div>"""
+        
+        phases_html += f"""
+                        <div class="accordion-item active">
+                            <button class="accordion-header" onclick="this.parentElement.classList.toggle('active')">
+                                <div class="phase-number">{idx + 1}</div>
+                                <div class="phase-info">
+                                    <span class="phase-name">{phase['name']}</span>
+                                    <span class="phase-duration">{phase['duration']}</span>
+                                </div>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="phase-details">
+                                    <div class="detail-section">
+                                        <h5><i data-lucide="target"></i> מטרות השלב:</h5>
+                                        <ul>{goals_list}</ul>
+                                    </div>
+                                    <div class="detail-section">
+                                        <h5><i data-lucide="activity"></i> תרגילים מומלצים:</h5>
+                                        <ul>{exercises_list}</ul>
+                                    </div>
+                                    {warnings_block}
+                                </div>
+                            </div>
+                        </div>
+        """
+
+    # Generate Full HTML
+    # Note: CSS braces in f-string must be doubled {{ }}
+    return f"""<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{protocol['title']} | פיזיותרפיה ושיקום</title>
+    <meta name="description" content="{protocol['shortDescription']} - פרוטוקול שיקום פיזיותרפיה. משך זמן: {protocol.get('duration', 'משתנה')}.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css?v=3">
+    <link rel="stylesheet" href="../css/physiotherapy.css">
+    <link rel="stylesheet" href="../css/accessibility.css">
+    <link rel="stylesheet" href="../css/side-menu.css">
+    
+    <script type="application/ld+json">
+    {json.dumps(schema_data, ensure_ascii=False, indent=2)}
+    </script>
+
+    <style>
+        /* Floating Buttons Styles */
+        .floating-btn-phone {{
+            position: fixed;
+            bottom: 7rem;
+            right: 2rem;
+            left: auto;
+            background: #33658A;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(51, 101, 138, 0.4);
+            transition: all 0.3s ease;
+            z-index: 990;
+        }}
+        
+        .floating-btn-phone:hover {{
+            transform: scale(1.1);
+            background: #2a5270;
+        }}
+
+        .floating-whatsapp {{
+            display: flex !important;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            left: auto;
+            background: linear-gradient(135deg, #4ADE80 0%, #16A34A 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            z-index: 990;
+            animation: pulse 2s infinite;
+        }}
+        
+        .floating-whatsapp:hover {{
+            transform: scale(1.1);
+        }}
+
+        @keyframes pulse {{
+            0% {{ box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }}
+            70% {{ box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }}
+            100% {{ box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }}
+        }}
+
+        @media (max-width: 768px) {{
+            .floating-btn-phone {{
+                width: 50px;
+                height: 50px;
+                bottom: 5.5rem;
+                right: 1.5rem;
+                left: auto;
+            }}
+            .floating-whatsapp {{
+                width: 50px;
+                height: 50px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+                left: auto;
+                display: flex !important;
+            }}
+        }}
+        
+        /* Ensure footer content is centered like main site */
+        .footer-content {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }}
+
+        /* Accessibility Trigger Position Override */
+        .acc-trigger {{
+            position: fixed;
+            top: 50%;
+            left: 0; 
+            right: auto;
+            transform: translateY(-50%);
+            z-index: 9999;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 0 8px 8px 0;
+            padding: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }}
+    </style>
+</head>
+<body class="medical-info-standard protocol-page">
+
+    <!-- Accessibility Trigger -->
+    <button class="acc-trigger" aria-label="אפשרויות נגישות">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 16v-4"></path>
+            <path d="M12 8h.01"></path>
+        </svg>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">C4U<span style="font-weight: 400; font-size: 0.8em;"> | אתר הכתף של ד"ר אבי שזר</span></a>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('active')">☰</button>
+            <nav class="nav-menu">
+                 <a href="../physiotherapy.html" class="nav-link">חזרה לפרוטוקולים</a>
+                 <a href="../index.html" class="nav-link">דף הבית</a>
+                 <a href="tel:0524224623" class="btn btn-primary"><i data-lucide="phone" style="width:16px;"></i> 052-4224623</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="mainContent">
+    
+        <!-- Hero Section -->
+        <section class="physio-detail-hero">
+            <div class="container">
+                <a href="../physiotherapy.html" class="back-link-legacy" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #33658a; margin-bottom: 1.5rem; font-weight: 600; text-decoration: none;">
+                    <i data-lucide="arrow-right"></i> חזרה לכל הפרוטוקולים
+                </a>
+                
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span class="card-badge" style="position: static; margin: 0;">
+                        <i data-lucide="activity"></i> {category_name}
+                    </span>
+                    {'<span class="card-badge" style="position: static; margin: 0; background: #e0f2fe; color: #0369a1;"><i data-lucide="clock"></i> ' + protocol.get('duration') + '</span>' if protocol.get('duration') else ''}
+                </div>
+
+                <h1>{protocol['title']}</h1>
+                <p class="physio-detail-desc">{protocol['shortDescription']}</p>
+
+                <div class="action-buttons" style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+                    <a href="../{protocol['pdfUrl']}" download class="btn-primary-card" style="width: auto; padding: 0 2rem;">
+                        <i data-lucide="download"></i> הורדת PDF
+                    </a>
+                    <a href="../{protocol['pdfUrl']}" target="_blank" class="btn-secondary-card" style="width: auto; padding: 0 2rem;">
+                       <i data-lucide="external-link"></i> צפייה במסמך מלא
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Layout -->
+        <div class="container physio-layout">
+            
+            <!-- Right Column: Accordion -->
+            <div class="phases-column">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--text-dark);">שלבי השיקום</h2>
+                <div class="accordion" id="phasesAccordion">
+                    {phases_html}
+                </div>
+            </div>
+
+            <!-- Left Column: PDF & Sticky -->
+            <aside class="pdf-sidebar">
+                <div class="pdf-card">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">מסמך רשמי</h3>
+                    <iframe src="../{protocol['pdfUrl']}" class="pdf-viewer-frame" title="Protocol PDF"></iframe>
+                    <a href="../{protocol['pdfUrl']}" class="btn-secondary-card" target="_blank" style="margin-top: 1rem;">
+                        <i data-lucide="maximize"></i> פתח בחלון חדש
+                    </a>
+                </div>
+                
+                <div class="red-flags-section" style="margin-top: 2rem; padding: 1.5rem; background: #fff5f5; border-radius: 12px; border: 1px solid #fed7d7;">
+                    <h4 style="color: #c53030; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                        <i data-lucide="alert-circle"></i> מתי לפנות לרופא?
+                    </h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem; color: #742a2a; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="width: 6px; height: 6px; background: #c53030; border-radius: 50%;"></span> חום מעל 38°
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #742a2a; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="width: 6px; height: 6px; background: #c53030; border-radius: 50%;"></span> כאב שאינו מוקל במשככים
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: #742a2a; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="width: 6px; height: 6px; background: #c53030; border-radius: 50%;"></span> הפרשה מרובה מהפצע
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Logo & Social (Right in RTL) -->
+                <div class="footer-col brand-col">
+                    <div class="footer-brand">
+                        <a href="../index.html" class="footer-logo">C4U | אתר הכתף של ד"ר אבי שזר</a>
+                        <p>ד"ר אבי שזר, מומחה אורתופד בכיר בתחום הכתף ומובילי תחום ניתוחי הכתף בארץ. רופא בכיר במרכז הרפואי כרמל, חיפה.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                        <a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links (Middle) -->
+                <div class="footer-col">
+                    <h3>קישורים מהירים</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#services">תחומי טיפול</a></li>
+                        <li><a href="../dr-chezar.html">אודות</a></li>
+                        <li><a href="../physiotherapy.html">אנטומיה של הכתף</a></li>
+                        <li><a href="../physiotherapy.html">לכל דפי המידע (אינדקס רפואי)</a></li>
+                        <li><a href="../index.html#achievements">הישגים והוקרה</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info (Left in RTL) -->
+                <div class="footer-col">
+                    <h3>פרטי קשר</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <a href="tel:0524224623">
+                                052-4224623 <i data-lucide="phone"></i>
+                            </a>
+                        </li>
+                        <li class="faded-text">מענה טלפוני וקביעת תורים</li>
+                        <li>
+                            <a href="mailto:chezarmd@gmail.com">
+                                chezarmd@gmail.com <i data-lucide="mail"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://waze.com/ul?ll=32.794044,34.989571&navigate=yes" target="_blank">
+                                אסותא חיפה | RMC עפולה <i data-lucide="map-pin"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="working-hours">
+                        <h4><i data-lucide="clock"></i> שעות קבלה</h4>
+                        <div class="hours-row">
+                            <span>אסותא חיפה:</span>
+                            <span>א' 09:00-15:00, ד' 16:00-20:00</span>
+                        </div>
+                        <div class="hours-row">
+                            <span>RMC עפולה:</span>
+                            <span>ג' 14:30-19:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="footer-disclaimer" style="font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; line-height: 1.5; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1.5rem; text-align: center;">
+                    המידע המופיע באתר נועד למידע כללי בלבד ואינו מהווה ייעוץ רפואי, אבחנה, חוות דעת מקצועית או תחליף להתייעצות עם רופא. בכל מקרה של בעיה רפואית יש לפנות לרופא המטפל, ובמקרה חירום יש לפנות למד״א או לחדר מיון. השימוש באתר וההסתמכות על המידע שבו הם באחריות המשתמש בלבד.
+                </div>
+                <div class="footer-legal-links">
+                    <a href="../index.html#contact">צור קשר</a>
+                    <a href="../privacy.html">מדיניות פרטיות</a>
+                    <a href="../accessibility.html">הצהרת נגישות</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2025 ד"ר אבי שזר. כל הזכויות שמורות.
+                </div>
+                <div class="footer-english-desc">
+                    Dr. Avi Chezar is a leading Orthopedic surgeon and Shoulder specialist in Israel
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <a href="tel:0524224623" class="floating-btn-phone" aria-label="התקשר למרפאה">
+        <i data-lucide="phone"></i>
+    </a>
+    
+    <a href="https://wa.me/972524224623" class="floating-whatsapp" target="_blank" aria-label="שלח הודעה בוואטסאפ">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        </svg>
+    </a>
+
+    <script src="../js/accessibility.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>"""
+
+def main():
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    json_path = os.path.join(base_dir, 'scripts', 'protocols.json')
+    output_dir = os.path.join(base_dir, 'physiotherapy')
+    
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+        
+    with open(json_path, 'r', encoding='utf-8') as f:
+        protocols = json.load(f)
+        
+    for p in protocols:
+        html_content = generate_html(p)
+        filename = f"{p['id']}.html"
+        file_path = os.path.join(output_dir, filename)
+        with open(file_path, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+        print(f"Generated {filename}")
+
+if __name__ == "__main__":
+    main()

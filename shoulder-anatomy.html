@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KGM3GLQ2');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אנטומיה אינטראקטיבית של הכתף | ד"ר אבי שזר</title>
+    <meta name="description"
+        content="חקור את האנטומיה של הכתף במודל אינטראקטיבי. למד על עצמות, שרירים, גידים ורצועות במפרק הכתף.">
+
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://www.catef4u.com/shoulder-anatomy.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.catef4u.com/shoulder-anatomy.html">
+    <meta property="og:title" content="אנטומיה אינטראקטיבית של הכתף | ד״ר אבי שזר">
+    <meta property="og:description"
+        content="מודל תלת-ממדי אינטראקטיבי של הכתף. למדו על המבנה האנטומי של הכתף, השרירים והעצמות.">
+    <meta property="og:image" content="https://www.catef4u.com/images/shoulder_anatomy_preview.jpg">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "אנטומיה אינטראקטיבית של הכתף",
+      "description": "מודל אינטראקטיבי ללימוד אנטומיה של הכתף, כולל עצמות, שרירים ורצועות.",
+      "url": "https://www.catef4u.com/shoulder-anatomy.html",
+      "author": {
+        "@type": "Physician",
+        "name": "ד״ר אבי שזר"
+      },
+      "about": {
+        "@type": "AnatomicalStructure",
+        "name": "Shoulder Joint"
+      }
+    }
+    </script>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Heebo:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <link rel="stylesheet" href="css/cookie-consent.css">
+
+    <style>
+        .anatomy-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+            min-height: 80vh;
+        }
+
+        .anatomy-sidebar {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .anatomy-sidebar h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+        }
+
+        .part-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .part-item {
+            padding: 0.75rem 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .part-item:hover {
+            background: #e0f2fe;
+            border-color: var(--primary-blue);
+        }
+
+        .part-item.active {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+
+        .part-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .viewer-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #canvas-container {
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .viewer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .control-btn:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .control-btn.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .info-panel {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-right: 4px solid var(--primary-blue);
+        }
+
+        .info-panel h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-panel p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .canvas-label {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .canvas-label.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .anatomy-container {
+                grid-template-columns: 1fr;
+            }
+
+            .anatomy-sidebar {
+                position: static;
+            }
+
+            #canvas-container {
+                height: 400px;
+            }
+        }
+
+        .anatomy-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 1.5rem auto;
+            display: block;
+        }
+
+        .images-row .anatomy-image {
+            max-width: 100%;
+            margin: 0;
+        }
+
+        .images-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .images-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Custom Gray Bullets for Problems Section */
+        .common-problems-bubble ul {
+            list-style: none;
+            padding-right: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .common-problems-bubble li {
+            position: relative;
+            padding-right: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .common-problems-bubble li::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: #64748b;
+            /* Slate Gray */
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(100, 116, 139, 0.1);
+            /* Gray Glow */
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGM3GLQ2" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">C4U<span style="font-weight: 400; font-size: 0.8em;"> | אתר הכתף של ד"ר
+                    אבי שזר</span></a>
+
+            <button class="mobile-toggle">☰</button>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">דף הבית</a>
+                <a href="index.html#services" class="nav-link">שירותים</a>
+                <a href="dr-chezar.html" class="nav-link">אודות</a>
+                <a href="index.html#contact" class="nav-link">צור קשר</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 30vh; padding-top: 120px; padding-bottom: 2rem;">
+        <div class="hero-shape"></div>
+        <div class="container" style="text-align: center; position: relative; z-index: 2;">
+            <h1>אנטומיה אינטראקטיבית של הכתף</h1>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 1rem auto; opacity: 0.9;">
+                סובב, גדל והכר את מבנה הכתף בתלת מימד
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section style="padding: 4rem 0; background: var(--bg-light);">
+        <div class="container">
+            <div class="anatomy-container" style="grid-template-columns: 1fr;">
+
+                <!-- Medical Content -->
+                <div class="anatomy-content"
+                    style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                    <h2 style="color: var(--primary-blue); margin-bottom: 1.5rem;">אנטומיה של הכתף</h2>
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">הכתף היא אחת המערכות המורכבות ביותר בגוף האנושי
+                        והיא מאפשרת טווח תנועה רחב מאוד: הרמת הזרוע, סיבוב, קירוב, הרחקה ותנועות מורכבות הנדרשות בפעולות
+                        יומיומיות כמו התלבשות, סירוק, נשיאת חפצים או ביצוע פעולות ספורט. מבנה הכתף מורכב משלוש עצמות -
+                        עצם השכמה (Scapula), עצם הבריח (Clavicle) ועצם הזרוע (Humerus) - ושלושה מפרקים הפועלים יחד
+                        ליצירת תנועה חלקה. המפרק העיקרי הוא המפרק הגלנו־הומרלי (Glenohumeral Joint), מפרק כדורי-מכתשי
+                        המורכב מראש הזרוע הגדולה יחסית וללעומת זאת גומחת הגלנואיד שבשכמה, שהיא שטוחה וקטנה. הבדל זה
+                        מאפשר תנועתיות רבה אך גם הופך את המפרק לפחות יציב, ולכן הוא תלוי מאוד ביציבות השרירים והגידים
+                        שסביבו, במיוחד בגידי ה־Rotator Cuff.</p>
+
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">לצד המפרק הגלנו־הומרלי קיימים עוד שני מפרקים
+                        חשובים: המפרק האקרומיו-קלביקולרי (AC Joint) בין האקרומיון לעצם הבריח, והמפרק הסטרנו-קלביקולרי
+                        (SC Joint) בין הבריח לעצם החזה. שני המפרקים הללו מאפשרים תזוזה של כל חגורת הכתפיים על בית החזה,
+                        ובכך מרחיבים את טווח התנועה הכולל של היד.</p>
+
+                    <div class="images-row">
+                        <img src="images/shoulder_cross_section.webp" loading="lazy"
+                            alt="חתך רוחב של הכתף - לברום, קופסית המפרק וגיד הבייספס" class="anatomy-image">
+                        <img src="images/shoulder_muscles_views.webp" loading="lazy" alt="מבט קדמי ואחורי על שרירי הכתף"
+                            class="anatomy-image">
+                    </div>
+
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">מבנה העצמות כולל כמה אזורים קליניים חשובים:
+                        האקרומיון - "גג הכתף" המתערב כמעט בכל בעיית כתף, הקוראקוייד - בליטה קדמית המשמשת עיגון לרצועות
+                        ושרירים, והגלנואיד - השקע שבו יושב ראש ההומרוס. העצם עצמה של הזרוע כוללת שני גבשושיות מרכזיות:
+                        ה־Greater Tubercle שאליו נאחזים הגידים של supraspinatus, infraspinatus ו-teres minor, וה־Lesser
+                        Tubercle שאליו נאחז שריר subscapularis. בין הגבשושיות עובר החריץ הביציפיטלי שבו מחליק גיד הראש
+                        הארוך של הבייספס, שנחשב חלק אינטגרלי ממנגנון היציבות של הכתף.</p>
+
+                    <h3 style="color: var(--primary-blue); margin-top: 2rem; margin-bottom: 1rem;">שרירים חשובים</h3>
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">לכתף יש מערכת שרירים ענפה, אך המרכזיים מבחינה
+                        קלינית הם שרירי ה־Rotator Cuff, קבוצת שרירים המייצבת את ראש הזרוע בתוך הגלנואיד תוך כדי תנועה.
+                        זהו מנגנון עדין: מצד אחד הכתף צריכה להיות מאוד יציבה, ומצד שני צריכה לאפשר תנועה גדולה. זו הסיבה
+                        שכל הפרעה קטנה בגידים האלו - דלקת, שחיקה או קרע - גורמת לכאב משמעותי.</p>
+
+                    <p style="margin-bottom: 0.5rem; line-height: 1.8;"><strong>שרירי ה־Rotator Cuff כוללים:</strong>
+                    </p>
+                    <ul style="padding-right: 1.5rem; margin-bottom: 1rem; line-height: 1.8;">
+                        <li style="margin-bottom: 0.5rem;"><strong>Supraspinatus</strong> - השריר החשוב ביותר בהרחקת
+                            הכתף בתחילת התנועה (0–15 מעלות). זהו השריר הפגיע ביותר מבחינה קלינית.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Infraspinatus ו-Teres Minor</strong> - אחראים על
+                            סיבוב חיצוני.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Subscapularis</strong> - השריר העיקרי לסיבוב פנימי.
+                        </li>
+                    </ul>
+                    <img src="images/rotator_cuff_anatomy.webp" loading="lazy"
+                        alt="אנטומיה של שרירי השרוול המסובב (Rotator Cuff)" class="anatomy-image">
+
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">גיד הבייספס (הראש הארוך) עובר בתוך המפרק עצמו
+                        ונכנס לחריץ הביציפיטלי. הוא מייצב את ראש הזרוע מלמעלה, ולכן לעיתים כאב ב"שריר הבייספס" הוא למעשה
+                        כאב הנובע מהמפרק.</p>
+
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">שריר חשוב נוסף הוא הדלתואיד, השריר הגדול שעוטף את
+                        הכתף ומהווה את עיקר הכוח בהרחקת הזרוע מעל 15 מעלות. כאשר supraspinatus נפגע, הדלתואיד לוקח את
+                        מרבית העומס, אך במקרים מתקדמים של קרע מלא התפקוד שלו מוגבל.</p>
+
+                    <h3 style="color: var(--primary-blue); margin-top: 2rem; margin-bottom: 1rem;">בורסות - "כריות
+                        החיכוך" של הכתף</h3>
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">כדי לאפשר תנועה חלקה בין הגידים לעצמות קיימות
+                        בורסות - שקיות קטנות מלאות נוזל. הבורסה המרכזית והרגישה ביותר היא ה־Subacromial/Subdeltoid
+                        Bursa, הממוקמת בין האקרומיון לגידים של supraspinatus והדלתואיד. דלקת בבורסה זו היא אחת הסיבות
+                        השכיחות לכאב כתף, במיוחד בזמן הרחקת הזרוע.</p>
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">בורסה נוספת, ה־Subscapularis Bursa, נמצאת מתחת
+                        לשריר subscapularis והיא מתקשרת עם המפרק ויכולה להיות מעורבת במצבי דלקת או גירוי.</p>
+
+                    <h3 style="color: var(--primary-blue); margin-top: 2rem; margin-bottom: 1rem;">רצועות ויציבות המפרק
+                    </h3>
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">למרות שהכתף היא מפרק מאוד נייד, היא זקוקה לרצועות
+                        יציבות. הרצועות העיקריות הן:</p>
+                    <ul style="padding-right: 1.5rem; margin-bottom: 1rem; line-height: 1.8;">
+                        <li style="margin-bottom: 0.5rem;"><strong>הרצועות ה־Glenohumeral (עליונה, אמצעית
+                                ותחתונה)</strong> - מחזקות את
+                            החלק הקדמי-תחתון של המפרק.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Coracohumeral Ligament</strong> - תומכת מלמעלה.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Transverse Humeral Ligament</strong> - מחזיקה את גיד
+                            הבייספס בחריץ
+                            שלו.</li>
+                    </ul>
+                    <img src="images/shoulder_bones_ligaments.webp" loading="lazy"
+                        alt="אנטומיה של מפרק הכתף - עצמות ורצועות" class="anatomy-image">
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">עם זאת, חשוב להבין: עיקר היציבות בכתף אינה מגיעה
+                        מהרצועות אלא מהשרירים, ולכן כל פגיעה ב־Rotator Cuff משפיעה מיידית על תפקוד הכתף.</p>
+
+                    <h3 style="color: var(--primary-blue); margin-top: 2rem; margin-bottom: 1rem;">חשוב להבין</h3>
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">הכתף היא מערכת מורכבת שמסתמכת בעיקר על שרירים
+                        וגידים. רוב הכאבים בכתף אינם מסוכנים, אך הם מצריכים טיפול נכון מפני שהם קשורים לשחיקה, דלקת או
+                        עומס. בגלל שהכתף יציבה בעיקר בזכות השרירים, פיזיותרפיה היא מרכיב מרכזי בתהליך ההחלמה כמעט בכל
+                        מצב - דלקת, קרע חלקי, או לאחר פריקה. במצבים מסוימים, כאשר יש קרע גדול או פריקות חוזרות, ניתוח
+                        יכול להוות פתרון, אך רוב האנשים משתפרים גם ללא התערבות כירורגית.</p>
+
+                    <!-- 6 Common Problems Bubble -->
+                    <div class="common-problems-bubble"
+                        style="background: #f0f7ff; border: 1px solid #cce3ff; border-radius: 16px; padding: 2rem; margin-top: 3rem; box-shadow: 0 4px 15px rgba(51, 101, 138, 0.05);">
+                        <h2
+                            style="color: var(--primary-blue); margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">
+                            6 הבעיות הנפוצות ביותר בכתף</h2>
+
+                        <!-- Problem 1 -->
+                        <div
+                            style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.05);">
+                            <h4 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 1rem;">1) תסמונת
+                                אימפינג'מנט (Shoulder Impingement)</h4>
+                            <p style="margin-bottom: 0.5rem;"><strong>מה זה?</strong><br>מצב שבו הגידים והבורסה של הכתף
+                                (בעיקר גיד ה־supraspinatus שמתוך ה–Rotator Cuff) "נלחצים" מתחת לגג הכתף (האקרומיון) בכל
+                                פעם שמרימים את היד.</p>
+                            <p style="margin-bottom: 0.5rem;"><strong>איך זה מרגיש?</strong></p>
+                            <ul style="padding-right: 1.5rem; margin-bottom: 1rem;">
+                                <li>כאב בצד הכתף, בעיקר בהרמת היד לצד או מעל הראש</li>
+                                <li>כאב בלילה, במיוחד בשכיבה על הכתף</li>
+                                <li>קושי לבצע פעולות יומיומיות כמו לבישת חולצה, הרמת תיק או סירוק</li>
+                            </ul>
+                            <p style="margin-bottom: 0.5rem;"><strong>למה זה קורה?</strong></p>
+                            <ul style="padding-right: 1.5rem; margin-bottom: 1rem;">
+                                <li>עומס חוזר (עבודה פיזית, ספורט, הרמת יד מעל הראש)</li>
+                                <li>שחיקה וגיל</li>
+                                <li>לפעמים שינויים גרמיים קטנים שמתחת לאקרומיון</li>
+                            </ul>
+                            <p><strong>טיפול כללי בקצרה:</strong><br>מנוחה יחסית, תרופות נוגדות דלקת, פיזיותרפיה לחיזוק
+                                השרירים המייצבים של הכתף, ובמקרים מסוימים הזרקה תת־אקרומיאלית.</p>
+                        </div>
+
+                        <!-- Problem 2 -->
+                        <div
+                            style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.05);">
+                            <h4 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 1rem;">2) דלקת
+                                בורסה (Subacromial Bursitis)</h4>
+                            <p style="margin-bottom: 0.5rem;"><strong>מה זה?</strong><br>הבורסה היא "כרית נוזלית"
+                                שמפחיתה חיכוך בין הגידים לעצם. כאשר היא מודלקת ומתנפחת, כל תנועה של הכתף עלולה לכאוב.
+                            </p>
+                            <p style="margin-bottom: 0.5rem;"><strong>איך זה מרגיש?</strong></p>
+                            <ul style="padding-right: 1.5rem; margin-bottom: 1rem;">
+                                <li>כאב חד בהרמת הזרוע</li>
+                                <li>כאב בשכיבה על הכתף</li>
+                                <li>לפעמים תחושת "שריפה" או כאב עמום בצד הזרוע</li>
+                            </ul>
+                            <p style="margin-bottom: 0.5rem;"><strong>למה זה קורה?</strong></p>
+                            <ul style="padding-right: 1.5rem; margin-bottom: 1rem;">
+                                <li>חיכוך מוגבר באזור האקרומיון</li>
+                                <li>תוצאה משנית לאימפינג’מנט, תסמונת השרוול המסובב, כתף קפואה.</li>
+                                <li>עומס חוזר או טראומה קלה</li>
+                            </ul>
+                            <p><strong>טיפול כללי בקצרה:</strong><br>מנוחה, קרח בשלבים הראשונים, תרופות נוגדות דלקת,
+                                פיזיותרפיה; לעיתים הזרקת סטרואידים לבורסה.</p>
+                        </div>
+
+                        <!-- Problem 3 -->
+                        <div
+                            style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.05);">
+                            <h4 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 1rem;">3) קרע
+                                בשרוול המסובב (Rotator Cuff Tear)</h4>
+                            <p style="margin-bottom: 0.5rem;"><strong>מה זה?</strong><br>ה־Rotator Cuff היא קבוצת גידים
+                                ושרירים שמייצבת את ראש הזרוע בתוך שקע הכתף. קרע יכול להיות חלקי או מלא, והגיד שנפגע הכי
+                                הרבה הוא בדרך כלל supraspinatus.</p>
+                            <p style="margin-bottom: 0.5rem;"><strong>איך זה מרגיש?</strong></p>
+                            <ul style="padding-right: 1.5rem; margin-bottom: 1rem;">
+                                <li>כאבים בכתף ובזרוע המופיעים באופן הדרגתי.</li>
+                                <li>קושי בביצוע פעולות יומיומיות כמו סירוק שיער או לבישת חולצה.</li>
+                                <li>חולשה וכאב בהרמת היד או בסיבוב הכתף</li>
+                                <li>קושי להתחיל הרחקה של הזרוע מהגוף</li>
+                                <li>לפעמים קלאק/קליק בתנועה</li>
+                            </ul>
+                            <p style="margin-bottom: 0.5rem;"><strong>למה זה קורה?</strong></p>
+                            <ul style="padding-right: 1.5rem; margin-bottom: 1rem;">
+                                <li>קרע ניווני / שחיקה עם הגיל (הנפוץ ביותר): נראה בדרך כלל אצל אנשים מעל גיל 40</li>
+                                <li>טראומה (נפילה, הרמת חפץ כבד)</li>
+                                <li>עומס חוזר (ספורט, עבודה מעל הראש)</li>
+                            </ul>
+                            <p><strong>טיפול כללי בקצרה:</strong><br>ברוב המקרים מתחילים בטיפול שמרני (פיזיותרפיה, משככי
+                                כאבים, התאמת פעילות). בקרעים מלאים, במיוחד אצל מטופלים צעירים ואקטיביים, או כשאין שיפור
+                                אחרי כמה חודשים – שוקלים תיקון ניתוחי.</p>
+                        </div>
+
+                        <!-- Problem 4 -->
+                        <div
+                            style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.05);">
+                            <h4 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 1rem;">4) פריקת כתף
+                                קדמית (Anterior Shoulder Dislocation)</h4>
+                            <p style="margin-bottom: 0.5rem;"><strong>מה זה?</strong><br>מצב שבו ראש עצם הזרוע "קופץ"
+                                קדימה מחוץ לשקע (הגלנואיד). זוהי הפריקה השכיחה ביותר של הכתף.</p>
+                            <p style="margin-bottom: 0.5rem;"><strong>איך זה מרגיש?</strong></p>
+                            <ul style="padding-right: 1.5rem; margin-bottom: 1rem;">
+                                <li>כאב חד וחזק מאוד</li>
+                                <li>היד "נתקעת" במנח מסוים, קשה או בלתי אפשרי להזיז</li>
+                                <li>לעיתים עיוות בצורה החיצונית של הכתף</li>
+                            </ul>
+                            <p style="margin-bottom: 0.5rem;"><strong>למה זה קורה?</strong></p>
+                            <ul style="padding-right: 1.5rem; margin-bottom: 1rem;">
+                                <li>נפילה על יד מושטת</li>
+                                <li>פציעה ספורטיבית או טראומה ישירה</li>
+                                <li>לאחר פריקה ראשונה – המפרק עלול להיות פחות יציב ולנטות לפריקות חוזרות</li>
+                            </ul>
+                            <p><strong>טיפול כללי בקצרה:</strong><br>החזרת הכתף למקום (סגורה, על ידי רופא מיומן), מנוחה
+                                והחלמה עם מתלה, ולאחר מכן פיזיותרפיה לחיזוק היציבות. במקרים של פריקות חוזרות או נזק מבני
+                                (לברום, עצם) – לעיתים נדרש טיפול ניתוחי.</p>
+                        </div>
+
+                        <!-- Problem 5 -->
+                        <div
+                            style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.05);">
+                            <h4 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 1rem;">5)
+                                דלקת/גירוי בגיד הראש הארוך של הבייספס (Biceps Tendinopathy)</h4>
+                            <p style="margin-bottom: 0.5rem;"><strong>מה זה?</strong><br>דלקת (דלקת גידים) ו/או ניוון
+                                כרוני (טנדינוזיס) של גיד הדו-ראשי, ה, לרוב משפיעה על הראש הארוך הפרוקסימלי ליד מקורו
+                                בפתח הגלנואיד העליון בחלק הקדמי של הזרוע. הגיד הזה רגיש לשחיקה ולגירוי, אם לא מטופל, זה
+                                יכול להתקדם לקרע של הגיד.</p>
+                            <p style="margin-bottom: 0.5rem;"><strong>איך זה מרגיש?</strong></p>
+                            <ul style="padding-right: 1.5rem; margin-bottom: 1rem;">
+                                <li>כאב בחלק הקדמי של הכתף</li>
+                                <li>רגישות באצבע אחת מעל החריץ בקדמת הזרוע</li>
+                                <li>כאב בהרמת משקל, בסיבוב הזרוע, או בהרמת היד קדימה</li>
+                            </ul>
+                            <p style="margin-bottom: 0.5rem;"><strong>למה זה קורה?</strong></p>
+                            <ul style="padding-right: 1.5rem; margin-bottom: 1rem;">
+                                <li>עומס חוזר (חד"כ, הרמת משקולות, ספורט)</li>
+                                <li>שילוב עם אימפינג’מנט או בעיות אחרות בכתף</li>
+                                <li>שחיקה עם הגיל</li>
+                            </ul>
+                            <p><strong>טיפול כללי בקצרה:</strong><br>התאמת פעילות, תרופות נוגדות דלקת, פיזיותרפיה,
+                                ובמקרים עמידים – הזרקה ממוקדת; לעיתים נדירות יותר – ניתוח (tenotomy/tenodesis).</p>
+                        </div>
+
+                        <!-- Problem 6 -->
+                        <div style="margin-bottom: 0;">
+                            <h4 style="color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 1rem;">6) כתף קפואה
+                                (Frozen Shoulder / Adhesive Capsulitis)</h4>
+                            <p style="margin-bottom: 0.5rem;"><strong>מה זה?</strong><br>כתף קפואה היא מצב שבו קפסולת
+                                הכתף (מעטפת המפרק) עוברת דלקת, התעבות ופיברוזיס. הקפסולה מתקשה ומתכווצת, מה שגורם להגבלה
+                                קשה בתנועה, ולעיתים גם לכאב משמעותי.</p>
+                            <p style="margin-bottom: 0.5rem;"><strong>תסמינים:</strong><br>מתאפיין בכאב ונוקשות הדרגתית
+                                של מפרק הכתף בשלב ראשון, ובהמשך הגבלה משמעותית בטווחי התנועה - במיוחד הרחקה וסיבוב
+                                חיצוני.</p>
+                            <p style="margin-bottom: 0.5rem;"><strong>האם זה מסוכן?</strong><br>לא. זה מצב לא נעים, אבל
+                                לא מסוכן.</p>
+                            <p style="margin-bottom: 0.5rem;"><strong>למה זה קורה?</strong><br>אנשים אחרי חוסר תנועה
+                                ממושך (לאחר פציעה, ניתוח או immobilization), מחלות סיסטמיות (כמו סוכרת), ולעיתים בלי
+                                סיבה ברורה.</p>
+
+                            <p style="margin-bottom: 0.5rem; margin-top: 1rem;"><strong>השלבים של כתף קפואה:</strong>
+                            </p>
+                            <ul style="padding-right: 1.5rem; margin-bottom: 1rem;">
+                                <li><strong>שלב 1 - שלב הקפיאה:</strong> כאב הולך ומתגבר וירידה הדרגתית בטווחי התנועה.
+                                </li>
+                                <li><strong>שלב 2 - שלב הקיפאון:</strong> פחות כאב, אך הגבלה קשה וקבועה בתנועות הכתף.
+                                </li>
+                                <li><strong>שלב 3 - שלב ההפשרה:</strong> שיפור הדרגתי בטווחי התנועה עד חזרה כמעט מלאה.
+                                </li>
+                            </ul>
+
+                            <p><strong>טיפול:</strong><br>בשלב הקפוא: טיפול להקלה בלבד — חימום, תרופות כאב, הימנעות
+                                מתנועות כואבות.<br>בשלב ההפשרה: התחלת פיזיותרפיה לשיפור הטווח.</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.9;">ב־95% מהמקרים יש החלמה מלאה
+                                ללא צורך בניתוח.<br>ניתוח נשקל רק במקרים נדירים עם הגבלה ממושכת במיוחד (בעיקר אצל חולי
+                                סוכרת).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Viewer -->
+                <div class="viewer-container">
+                    <div
+                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; padding: 4rem 2rem; text-align: center; color: white; min-height: 500px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem;">
+
+                        <div
+                            style="width: 100px; height: 100px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                            <i data-lucide="box" style="width: 50px; height: 50px; color: white;"></i>
+                        </div>
+
+                        <h2 style="font-size: 2.5rem; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+                            מודל אנטומי תלת-ממדי מקצועי
+                        </h2>
+
+                        <p style="font-size: 1.2rem; max-width: 600px; margin: 0; opacity: 0.95; line-height: 1.6;">
+                            צפה במודל אינטראקטיבי מפורט של אנטומיית הכתף - עצמות, שרירים, עצבים ועורקים.
+                            סובב, הגדל והתעמק בכל פרט אנטומי.
+                        </p>
+
+                        <div
+                            style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem;">
+                            <a href="https://human.biodigital.com/viewer/?id=5bLX&ui-anatomy-descriptions=true&ui-anatomy-pronunciations=true&ui-anatomy-labels=true&ui-audio=true&ui-chapter-list=false&ui-fullscreen=true&ui-help=true&ui-info=true&ui-label-list=true&ui-layers=true&ui-loader=circle&ui-media-controls=full&ui-menu=true&ui-nav=true&ui-search=true&ui-tools=true&ui-tutorial=false&ui-undo=true&ui-whiteboard=true&initial.none=true&disable-scroll=false&dk=edac91d2443ff104ab74174b3047b00937a21960&paid=o_25ed890c"
+                                target="_blank"
+                                style="padding: 1rem 2.5rem; background: white; color: var(--primary-blue); border-radius: 50px; font-weight: 700; font-size: 1.1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: all 0.3s ease;"
+                                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 30px rgba(0,0,0,0.3)';"
+                                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.2)';">
+                                <i data-lucide="external-link" style="width: 20px; height: 20px;"></i>
+                                פתח מודל אינטראקטיבי
+                            </a>
+
+                            <a href="https://www.msdmanuals.com/professional/multimedia/3dmodel/nerves-arteries-and-ligaments-of-the-shoulder"
+                                target="_blank"
+                                style="padding: 1rem 2.5rem; background: rgba(255,255,255,0.2); color: white; border: 2px solid white; border-radius: 50px; font-weight: 600; font-size: 1.1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease;"
+                                onmouseover="this.style.background='rgba(255,255,255,0.3)';"
+                                onmouseout="this.style.background='rgba(255,255,255,0.2)';">
+                                <i data-lucide="layers" style="width: 20px; height: 20px;"></i>
+                                מודל MSD Manuals
+                            </a>
+                        </div>
+
+                        <div
+                            style="margin-top: 2rem; padding: 1.5rem; background: rgba(0,0,0,0.2); border-radius: 12px; max-width: 700px;">
+                            <p style="margin: 0; font-size: 0.95rem; opacity: 0.9;">
+                                <strong>💡 טיפ:</strong> שני המודלים מציעים צפייה אינטראקטיבית מקצועית.
+                                BioDigital מתמחה בתצוגה אנטומית מפורטת, ו-MSD Manuals מציע מידע רפואי נרחב.
+                            </p>
+                        </div>
+
+                        <p style="margin-top: 1.5rem; font-size: 0.75rem; opacity: 0.7; color: white;">
+                            הקישור מוביל לאתר חיצוני שאינו בבעלותנו. המידע מוצג לצורכי העשרה בלבד.
+                        </p>
+                    </div>
+
+                    <div class="info-panel" id="infoPanel" style="margin-top: 2rem;">
+                        <h4>למה מודלים אינטראקטיביים?</h4>
+                        <p>
+                            הבנת המבנה התלת-ממדי של הכתף חיונית להבנת פציעות ותהליכי טיפול.
+                            המודלים האינטראקטיביים מאפשרים לך לראות בדיוק איך כל חלק מתחבר ומתקשר עם האחרים,
+                            מה שעוזר להבין טוב יותר את האבחנה והטיפול המוצעים.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Brand & Intro -->
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">C4U<span style="font-weight: 400; font-size: 0.8em;"> | אתר הכתף של ד"ר אבי שזר</span></a>
+                    <p class="footer-intro-text">
+                        ד"ר אבי שזר, מומחה אורתופד בכיר בתחום הכתף ומובילי תחום ניתוחי הכתף בארץ. רופא בכיר במרכז הרפואי כרמל, חיפה.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/dr.avi.chezar" class="social-icon-btn facebook" target="_blank">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                        <a href="https://youtu.be/bFv-mnuJKDA?si=VEiZm3zSIuXeNeTV" class="social-icon-btn youtube" target="_blank">
+                            <i data-lucide="youtube"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dr.avi_chezar" class="social-icon-btn instagram" target="_blank">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4>קישורים מהירים</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">תחומי טיפול</a></li>
+                        <li><a href="dr-chezar.html">אודות</a></li>
+                        <li><a href="shoulder-anatomy.html">אנטומיה של הכתף</a></li>
+                        <li><a href="medical-guide.html">לכל דפי המידע (אינדקס רפואי)</a></li>
+                        <li><a href="achievements.html">הישגים והוקרה</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact & Hours -->
+                <div>
+                    <h4>פרטי קשר</h4>
+                    <div class="footer-contact-info">
+                        <div class="footer-contact-item">
+                            <i data-lucide="phone" class="footer-contact-icon"></i>
+                            <div>
+                                <div style="font-weight: 600; color: white;">052-4224623</div>
+                                <div style="font-size: 0.9rem; color: rgba(255,255,255,0.5);">מענה טלפוני וקביעת תורים</div>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i data-lucide="mail" class="footer-contact-icon"></i>
+                            <div>chezarmd@gmail.com</div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i data-lucide="map-pin" class="footer-contact-icon"></i>
+                            <div>אסותא חיפה | RMC עפולה</div>
+                        </div>
+                    </div>
+
+                    <div class="footer-hours-group">
+                        <div class="footer-hours-title">
+                            <i data-lucide="clock" style="width: 16px;"></i>
+                            <span>שעות קבלה</span>
+                        </div>
+                        <div class="footer-hours-row">
+                            <span>אסותא חיפה:</span>
+                            <span>א" 09:00-15:00, ד" 16:00-20:00</span>
+                        </div>
+                        <div class="footer-hours-row">
+                            <span>RMC עפולה:</span>
+                            <span>ג" 14:30-19:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+            <div class="footer-disclaimer" style="font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; line-height: 1.5; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1.5rem; text-align: center;">
+                המידע המופיע באתר נועד למידע כללי בלבד ואינו מהווה ייעוץ רפואי, אבחנה, חוות דעת מקצועית או תחליף להתייעצות עם רופא. בכל מקרה של בעיה רפואית יש לפנות לרופא המטפל, ובמקרה חירום יש לפנות למד״א או לחדר מיון. השימוש באתר וההסתמכות על המידע שבו הם באחריות המשתמש בלבד.
+            </div>
+                <div class="footer-legal-links">
+                    <a href="index.html#contact">צור קשר</a>
+                    <a href="privacy.html">מדיניות פרטיות</a>
+                    <a href="accessibility.html">הצהרת נגישות</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2025 ד"ר אבי שזר. כל הזכויות שמורות.
+                </div>
+                <div class="footer-english-desc">
+                    Dr. Avi Chezar is a leading Orthopedic surgeon and Shoulder specialist in Israel
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Mobile Sticky Bar -->
+    <div class="mobile-sticky-bar">
+        <a href="tel:0524224623" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg> התקשר
+        </a>
+        <a href="https://wa.me/972524224623" class="btn btn-whatsapp">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg> וואטסאפ
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/accessibility.js"></script>
+    <script src="js/cookie-consent.js"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

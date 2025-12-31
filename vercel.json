@@ -1,0 +1,444 @@
+{
+    "cleanUrls": true,
+    "redirects": [
+        {
+            "source": "/ניתוחים/",
+            "destination": "/medical-guide.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%A0%D7%99%D7%AA%D7%95%D7%97%D7%99%D7%9D/",
+            "destination": "/medical-guide.html",
+            "permanent": true
+        },
+        {
+            "source": "/בעיות-שכיחות-בכתף/",
+            "destination": "/medical-guide.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/",
+            "destination": "/medical-guide.html",
+            "permanent": true
+        },
+        {
+            "source": "/בעיות-שכיחות-בכתף/פריקת-עצם-הבריח/:path*",
+            "destination": "/clavicle-dislocation.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A4%D7%A8%D7%99%D7%A7%D7%AA-%D7%A2%D7%A6%D7%9D-%D7%94%D7%91%D7%A8%D7%99%D7%97/:path*",
+            "destination": "/clavicle-dislocation.html",
+            "permanent": true
+        },
+        {
+            "source": "/בעיות-שכיחות-בכתף/הסתיידויות-בגידים/:path*",
+            "destination": "/calcific-tendonitis.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%94%D7%A1%D7%AA%D7%99%D7%99%D7%93%D7%95%D7%99%D7%95%D7%AA-%D7%91%D7%92%D7%99%D7%93%D7%99%D7%9D/:path*",
+            "destination": "/calcific-tendonitis.html",
+            "permanent": true
+        },
+        {
+            "source": "/בעיות-שכיחות-בכתף/קרעים-בשרוול-המסובב/:path*",
+            "destination": "/rotator-cuff-tears.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A7%D7%A8%D7%A2%D7%99%D7%9D-%D7%91%D7%A9%D7%A8%D7%95%D7%95%D7%9C-%D7%94%D7%9E%D7%A1%D7%95%D7%91%D7%91/:path*",
+            "destination": "/rotator-cuff-tears.html",
+            "permanent": true
+        },
+        {
+            "source": "/בעיות-שכיחות-בכתף/פריקות-חוזרות/:path*",
+            "destination": "/shoulder-instability.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A4%D7%A8%D7%99%D7%A7%D7%95%D7%AA-%D7%97%D7%95%D7%96%D7%A8%D7%95%D7%AA/:path*",
+            "destination": "/shoulder-instability.html",
+            "permanent": true
+        },
+        {
+            "source": "/בעיות-שכיחות-בכתף/כתף-קפואה/:path*",
+            "destination": "/frozen-shoulder.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%9B%D7%AA%D7%A3-%D7%A7%D7%A4%D7%95%D7%90%D7%94/:path*",
+            "destination": "/frozen-shoulder.html",
+            "permanent": true
+        },
+        {
+            "source": "/בעיות-שכיחות-בכתף/שחיקת-הסחוס-במפרק/:path*",
+            "destination": "/shoulder-osteoarthritis.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A9%D7%97%D7%99%D7%A7%D7%AA-%D7%94%D7%A1%D7%97%D7%95%D7%A1-%D7%91%D7%9E%D7%A4%D7%A8%D7%A7/:path*",
+            "destination": "/shoulder-osteoarthritis.html",
+            "permanent": true
+        },
+        {
+            "source": "/בעיות-שכיחות-בכתף/קרע-ראש-ארוך-של-בייספס/:path*",
+            "destination": "/biceps-tear.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A7%D7%A8%D7%A2-%D7%A8%D7%90%D7%A9-%D7%90%D7%A8%D7%95%D7%9A-%D7%A9%D7%9C-%D7%91%D7%99%D7%99%D7%A1%D7%A4%D7%A1/:path*",
+            "destination": "/biceps-tear.html",
+            "permanent": true
+        },
+        {
+            "source": "/בעיות-שכיחות-בכתף/קרע-ראש-ארוך-של-ביצפס/:path*",
+            "destination": "/biceps-tear.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A7%D7%A8%D7%A2-%D7%A8%D7%90%D7%A9-%D7%90%D7%A8%D7%95%D7%9A-%D7%A9%D7%9C-%D7%91%D7%99%D7%A6%D7%A4%D7%A1/:path*",
+            "destination": "/biceps-tear.html",
+            "permanent": true
+        },
+        {
+            "source": "/בעיות-שכיחות-בכתף/קרע-בלברום-העליון-slap/:path*",
+            "destination": "/slap-tear.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A7%D7%A8%D7%A2-%D7%91%D7%9C%D7%91%D7%A8%D7%95%D7%9D-%D7%94%D7%A2%D7%9C%D7%99%D7%95%D7%9F-slap/:path*",
+            "destination": "/slap-tear.html",
+            "permanent": true
+        },
+        {
+            "source": "/בעיות-שכיחות-בכתף/שברים-בכתף-עצם-הזרוע/:path*",
+            "destination": "/humerus-fracture.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A9%D7%91%D7%A8%D7%99%D7%9D-%D7%91%D7%9B%D7%AA%D7%A3-%D7%A2%D7%A6%D7%9D-%D7%94%D7%96%D7%A8%D7%95%D7%A2/:path*",
+            "destination": "/humerus-fracture.html",
+            "permanent": true
+        },
+        {
+            "source": "/ניתוחים/ארטרוסקופיה-של-הכתף/:path*",
+            "destination": "/shoulder-arthroscopy.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%A0%D7%99%D7%AA%D7%95%D7%97%D7%99%D7%9D/%D7%90%D7%A8%D7%98%D7%A8%D7%95%D7%A1%D7%A7%D7%95%D7%A4%D7%99%D7%94-%D7%A9%D7%9C-%D7%94%D7%9B%D7%AA%D7%A3/:path*",
+            "destination": "/shoulder-arthroscopy.html",
+            "permanent": true
+        },
+        {
+            "source": "/ניתוחים/פריקות-חוזרות-ניתוח-לתפירת-לברום/:path*",
+            "destination": "/bankart-repair.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%A0%D7%99%D7%AA%D7%95%D7%97%D7%99%D7%9D/%D7%A4%D7%A8%D7%99%D7%A7%D7%95%D7%AA-%D7%97%D7%95%D7%96%D7%A8%D7%95%D7%AA-%D7%A0%D7%99%D7%AA%D7%95%D7%97-%D7%9C%D7%AA%D7%A4%D7%99%D7%A8%D7%AA-%D7%9C%D7%91%D7%A8%D7%95%D7%9D/:path*",
+            "destination": "/bankart-repair.html",
+            "permanent": true
+        },
+        {
+            "source": "/ניתוחים/טיפול-בפריקות-חוזרות-ניתוח-לטרזה/:path*",
+            "destination": "/latarjet-procedure.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%A0%D7%99%D7%AA%D7%95%D7%97%D7%99%D7%9D/%D7%98%D7%99%D7%A4%D7%95%D7%9C-%D7%91%D7%A4%D7%A8%D7%99%D7%A7%D7%95%D7%AA-%D7%97%D7%95%D7%96%D7%A8%D7%95%D7%AA-%D7%A0%D7%99%D7%AA%D7%95%D7%97-%D7%9C%D7%98%D7%A8%D7%96%D7%94/:path*",
+            "destination": "/latarjet-procedure.html",
+            "permanent": true
+        },
+        {
+            "source": "/ניתוחים/תיקון-קרע-בגידים-שרוול-מסובב/:path*",
+            "destination": "/rotator-cuff-repair.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%A0%D7%99%D7%AA%D7%95%D7%97%D7%99%D7%9D/%D7%AA%D7%99%D7%A7%D7%95%D7%9F-%D7%A7%D7%A8%D7%A2-%D7%91%D7%92%D7%99%D7%93%D7%99%D7%9D-%D7%A9%D7%A8%D7%95%D7%95%D7%9C-%D7%9E%D7%A1%D7%95%D7%91%D7%91/:path*",
+            "destination": "/rotator-cuff-repair.html",
+            "permanent": true
+        },
+        {
+            "source": "/ניתוחים/קיבוע-שבר-בכתף-בעזרת-פלטה-וברגים/:path*",
+            "destination": "/fracture-fixation.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%A0%D7%99%D7%AA%D7%95%D7%97%D7%99%D7%9D/%D7%A7%D7%99%D7%91%D7%95%D7%A2-%D7%A9%D7%91%D7%A8-%D7%91%D7%9B%D7%AA%D7%A3-%D7%91%D7%A2%D7%96%D7%A8%D7%AA-%D7%A4%D7%9C%D7%98%D7%94-%D7%95%D7%91%D7%A8%D7%92%D7%99%D7%9D/:path*",
+            "destination": "/fracture-fixation.html",
+            "permanent": true
+        },
+        {
+            "source": "/ניתוחים/טיפול-בשבר-בכתף-החלפת-מפרק-חלקית/:path*",
+            "destination": "/partial-shoulder-replacement.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%A0%D7%99%D7%AA%D7%90%D7%95%D7%97%D7%99%D7%9D/%D7%98%D7%99%D7%A4%D7%95%D7%9C-%D7%91%D7%A9%D7%91%D7%A8-%D7%91%D7%9B%D7%AA%D7%A3-%D7%94%D7%97%D7%9C%D7%A4%D7%AA-%D7%9E%D7%A4%D7%A8%D7%A7-%D7%97%D7%9C%D7%A7%D7%99%D7%AA/:path*",
+            "destination": "/partial-shoulder-replacement.html",
+            "permanent": true
+        },
+        {
+            "source": "/ניתוחים/טיפול-בשבר-בכתף-החלפת-מפרק-הפוכה/:path*",
+            "destination": "/reverse-shoulder-fracture.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%A0%D7%99%D7%AA%D7%90%D7%95%D7%97%D7%99%D7%9D/%D7%98%D7%99%D7%A4%D7%95%D7%9C-%D7%91%D7%A9%D7%91%D7%A8-%D7%91%D7%9B%D7%AA%D7%A3-%D7%94%D7%97%D7%9C%D7%A4%D7%AA-%D7%9E%D7%A4%D7%A8%D7%A7-%D7%94%D7%A4%D7%95%D7%9B%D7%94/:path*",
+            "destination": "/reverse-shoulder-fracture.html",
+            "permanent": true
+        },
+        {
+            "source": "/ניתוחים/החלפת-מפרק-כתף-הפוכה/:path*",
+            "destination": "/reverse-shoulder-replacement.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%A0%D7%99%D7%AA%D7%90%D7%95%D7%97%D7%99%D7%9D/%D7%94%D7%97%D7%9C%D7%A4%D7%AA-%D7%9E%D7%A4%D7%A8%D7%A7-%D7%9B%D7%AA%D7%A3-%D7%94%D7%A4%D7%95%D7%9B%D7%94/:path*",
+            "destination": "/reverse-shoulder-replacement.html",
+            "permanent": true
+        },
+        {
+            "source": "/צור-קשר/:path*",
+            "destination": "/index.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8/:path*",
+            "destination": "/index.html",
+            "permanent": true
+        },
+        {
+            "source": "/אודות/:path*",
+            "destination": "/dr-chezar.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%90%D7%95%D7%93%D7%95%D7%AA/:path*",
+            "destination": "/dr-chezar.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "instability"
+                }
+            ],
+            "destination": "/shoulder-instability.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "rotator_cuff"
+                }
+            ],
+            "destination": "/rotator-cuff-tears.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "calcific"
+                }
+            ],
+            "destination": "/calcific-tendonitis.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "frozen_shoulder"
+                }
+            ],
+            "destination": "/frozen-shoulder.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "clavicle_dislocation"
+                }
+            ],
+            "destination": "/clavicle-dislocation.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "osteoarthritis"
+                }
+            ],
+            "destination": "/shoulder-osteoarthritis.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "biceps_tear"
+                }
+            ],
+            "destination": "/biceps-tear.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "slap_tear"
+                }
+            ],
+            "destination": "/slap-tear.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "humerus_fracture"
+                }
+            ],
+            "destination": "/humerus-fracture.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "arthroscopy"
+                }
+            ],
+            "destination": "/shoulder-arthroscopy.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "labral_repair"
+                }
+            ],
+            "destination": "/bankart-repair.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "latarjet"
+                }
+            ],
+            "destination": "/latarjet-procedure.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "cuff_repair"
+                }
+            ],
+            "destination": "/rotator-cuff-repair.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "fracture_fixation"
+                }
+            ],
+            "destination": "/fracture-fixation.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "partial_replacement"
+                }
+            ],
+            "destination": "/partial-shoulder-replacement.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "reverse_fracture"
+                }
+            ],
+            "destination": "/reverse-shoulder-fracture.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "topic",
+                    "value": "reverse_replacement"
+                }
+            ],
+            "destination": "/reverse-shoulder-replacement.html",
+            "permanent": true
+        },
+        {
+            "source": "/info-page.html",
+            "destination": "/medical-guide.html",
+            "permanent": true
+        },
+        {
+            "source": "/אנטומיה-של-הכתף/:path*",
+            "destination": "/shoulder-anatomy.html",
+            "permanent": true
+        },
+        {
+            "source": "/%D7%90%D7%A0%D7%98%D7%95%D7%9E%D7%99%D7%94-%D7%A9%D7%9C-%D7%94%D7%9B%D7%AA%D7%A3/:path*",
+            "destination": "/shoulder-anatomy.html",
+            "permanent": true
+        }
+    ]
+}

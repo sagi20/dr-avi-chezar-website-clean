@@ -1,0 +1,31 @@
+# robots.txt for catef4u.com
+# Optimized for Google, Bing, and AI Search Engines (ChatGPT, Gemini, Claude)
+
+# Allow all major search engines
+User-agent: *
+Allow: /
+
+# Allow bots to access CSS/JS/Images for rendering (Critical for modern SEO)
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Explicitly Allow AI Bots (for visibility in AI answers)
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.catef4u.com/sitemap.xml

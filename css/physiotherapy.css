@@ -1,0 +1,593 @@
+/* Physiotherapy Section Styles */
+
+.physio-hero {
+    background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+    padding: 100px 0 48px;
+    /* Increased top padding to clear header */
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.physio-hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text-dark);
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #eef2f6;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    color: #33658a;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-badge i {
+    width: 18px;
+    height: 18px;
+}
+
+.physio-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-badge {
+    padding: 0.5rem 1rem;
+    background: white;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Disclaimer Banner */
+.medical-disclaimer {
+    background: #fffcf0;
+    border: 1px solid #fef3c7;
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+    margin: 3rem 0;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.disclaimer-icon {
+    color: #d97706;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+}
+
+.disclaimer-text {
+    font-size: 1.1rem;
+    color: #92400e;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* Intro Content */
+.physio-intro-section {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.intro-subtitle {
+    font-size: 1.875rem;
+    color: #33658a;
+    margin-bottom: 1.5rem;
+    text-align: right;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.intro-paragraph {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: 1.25rem;
+    text-align: right;
+}
+
+/* Controls */
+.physio-controls {
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    width: 20px;
+}
+
+.protocol-search {
+    width: 100%;
+    padding: 1rem 3.5rem 1rem 1.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-full);
+    font-size: 1.1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.protocol-search:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 4px rgba(51, 101, 138, 0.1);
+}
+
+.filter-pills {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-pill {
+    padding: 0.6rem 1.25rem;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.filter-pill:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.filter-pill.active {
+    background: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+    box-shadow: 0 4px 12px rgba(51, 101, 138, 0.2);
+}
+
+/* Protocol Grid */
+.category-group {
+    margin-bottom: 4rem;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    padding-right: 1.25rem;
+    border-right: 5px solid var(--accent-turquoise);
+    font-weight: 800;
+}
+
+.protocol-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    /* Matched to 350px card width */
+    gap: 2rem;
+}
+
+.protocol-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 24px;
+    direction: rtl;
+    font-family: 'Heebo', sans-serif;
+    transition: all 0.3s ease;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    max-width: 100%;
+    /* Ensure text doesn't overflow on very small screens */
+}
+
+.protocol-card:hover {
+    border-color: rgba(51, 101, 138, 0.5);
+    box-shadow: 0 10px 25px rgba(51, 101, 138, 0.15);
+}
+
+.card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #F1F5F9;
+    color: #64748B;
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    margin-bottom: 16px;
+    position: static;
+    /* Override previous absolute */
+}
+
+.card-badge i {
+    width: 14px;
+    height: 14px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2A3F54;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.card-desc {
+    font-size: 14px;
+    color: #64748B;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.card-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* Matching the margin-top: 8px logic */
+}
+
+.btn-primary-card {
+    width: 100%;
+    height: 44px;
+    background: #33658A;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0;
+    /* Remove default padding since we use fixed height and flex center */
+}
+
+.btn-secondary-card {
+    width: 100%;
+    height: 44px;
+    background: transparent;
+    color: #33658A;
+    border: 2px solid #33658A;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0;
+}
+
+/* Remove hover scale effects as they weren't in the provided CSS, only border color change on card hover */
+.btn-primary-card:hover {
+    background: #28516f;
+    /* Keep slight color shift for interactivity */
+}
+
+.btn-secondary-card:hover {
+    background: rgba(51, 101, 138, 0.05);
+}
+
+/* Icon utilities for buttons */
+.btn-primary-card .icon-left {
+    order: 2;
+    /* In RTL, left is end */
+}
+
+.btn-secondary-card .icon-right {
+    order: 1;
+    /* Before text in RTL flow */
+}
+
+.btn-secondary-card:hover {
+    background: rgba(51, 101, 138, 0.05);
+    transform: scale(1.02);
+}
+
+.icon-right {
+    width: 20px;
+    height: 20px;
+    margin-right: -0.25rem;
+}
+
+.chevron {
+    width: 18px;
+    height: 18px;
+    opacity: 0.8;
+}
+
+/* Detail View Layout */
+.physio-layout {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+@media (max-width: 1024px) {
+    .physio-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Accordion */
+.accordion-item {
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 1.5rem;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    cursor: pointer;
+    text-align: right;
+    font-family: inherit;
+}
+
+.phase-number {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.phase-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.phase-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.phase-duration {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.accordion-header i {
+    transition: transform 0.3s;
+}
+
+.accordion-item.active i {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 1000px;
+}
+
+.phase-details {
+    padding: 0 1.5rem 2rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.detail-section {
+    margin-bottom: 2rem;
+}
+
+.detail-section h5 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.detail-section ul {
+    padding-right: 1.5rem;
+}
+
+.detail-section li {
+    position: relative;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.detail-section li::before {
+    content: '';
+    position: absolute;
+    right: -1rem;
+    top: 0.6rem;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-turquoise);
+    border-radius: 50%;
+}
+
+.detail-section.warning {
+    background: #fffbeb;
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.detail-section.warning h5 {
+    color: #d97706;
+}
+
+/* PDF Sidebar */
+.pdf-sidebar {
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+}
+
+.pdf-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+}
+
+.pdf-viewer-frame {
+    width: 100%;
+    height: 500px;
+    /* Default height */
+    min-height: 50vh;
+    /* Responsive min-height */
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: #f8fafc;
+    margin-bottom: 1.5rem;
+    overflow-y: auto;
+    /* Enable scrolling */
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scroll on iOS */
+    display: block;
+    /* Ensure block layout */
+}
+
+/* Red Flags */
+.red-flags-section {
+    background: #fff5f5;
+    border-radius: 24px;
+    padding: 3rem;
+    margin: 4rem 0;
+}
+
+.red-flags-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #c53030;
+    margin-bottom: 2rem;
+}
+
+.red-flags-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.flag-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-weight: 600;
+    color: #742a2a;
+}
+
+.flag-icon {
+    width: 10px;
+    height: 10px;
+    background: #c53030;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Detail View Specifics */
+.physio-detail-hero {
+    background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+    padding: 140px 0 40px;
+    /* Increased top padding to clear header (was 100px) */
+    text-align: right;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.physio-detail-hero h1 {
+    font-size: 2.5rem;
+    /* ~text-4xl */
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.physio-detail-desc {
+    font-size: 1.125rem;
+    /* text-lg */
+    color: var(--text-muted);
+    max-width: 800px;
+    margin-bottom: 1.5rem;
+}
+
+.physio-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 992px) {
+    .physio-layout {
+        grid-template-columns: 7fr 5fr;
+        /* 7/12 - 5/12 split */
+        gap: 3rem;
+    }
+}
+
+/* FAQ Specific - Targets H3 in accordion headers */
+.accordion-header>h3 {
+    font-size: 1.125rem;
+    /* Reduced for better proportion */
+    font-weight: 700;
+    color: var(--text-dark);
+    flex-grow: 1;
+    margin: 0;
+}

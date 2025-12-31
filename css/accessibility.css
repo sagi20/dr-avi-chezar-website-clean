@@ -1,0 +1,304 @@
+/* Accessibility Tool Styles - WCAG 2.1 AA Compliant */
+
+:root {
+    --acc-primary: #2563eb;
+    --acc-bg: #ffffff;
+    --acc-text: #1e293b;
+    --acc-border: #e2e8f0;
+    --acc-panel-width: 320px;
+    --acc-z-index: 10000;
+}
+
+/* Screen Reader Only */
+.acc-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Trigger Button */
+.acc-trigger {
+    position: fixed;
+    top: 75%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: var(--acc-primary);
+    border-radius: 0 12px 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 0 2px #fff, 4px 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: var(--acc-z-index);
+    transition: all 0.2s ease;
+    border: 2px solid #fff;
+    border-left: none;
+    padding: 0;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.acc-trigger:hover {
+    width: 70px;
+    padding-right: 10px;
+}
+
+.acc-trigger svg {
+    color: #fff;
+    width: 34px;
+    height: 34px;
+}
+
+@media (max-width: 768px) {
+    .acc-trigger {
+        width: 50px;
+        height: 50px;
+        top: 75%;
+    }
+}
+
+/* Panel */
+.acc-panel {
+    position: fixed;
+    top: 0;
+    left: -110%;
+    width: var(--acc-panel-width);
+    height: 100vh;
+    background: var(--acc-bg);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+    z-index: var(--acc-z-index);
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    pointer-events: none;
+    visibility: hidden;
+    filter: none !important;
+    /* Ensure panel is NEVER inverted/affected */
+}
+
+.acc-panel.active {
+    left: 0;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.acc-header {
+    padding: 16px;
+    background: var(--acc-primary);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.acc-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.acc-close {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.acc-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.acc-body {
+    padding: 16px;
+    flex: 1;
+}
+
+/* Grid Buttons */
+.acc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.acc-btn {
+    background: #f1f5f9;
+    border: 1px solid var(--acc-border);
+    border-radius: 12px;
+    padding: 14px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: center;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--acc-text);
+    appearance: none;
+}
+
+.acc-btn:hover {
+    background: #e2e8f0;
+}
+
+.acc-btn.active {
+    background: var(--acc-primary);
+    color: #fff;
+    border-color: var(--acc-primary);
+}
+
+.acc-btn svg {
+    width: 22px;
+    height: 22px;
+    color: var(--acc-primary);
+}
+
+.acc-btn.active svg {
+    color: #fff;
+}
+
+/* Text Controls */
+.acc-controls {
+    background: #f8fafc;
+    border: 1px solid var(--acc-border);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.acc-resize-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--acc-border);
+}
+
+.acc-resize-group button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #f1f5f9;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+#textSizeDisplay {
+    min-width: 50px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Reset */
+.acc-reset {
+    width: 100%;
+    padding: 12px;
+    background: #fef2f2;
+    border: 1px solid #fee2e2;
+    border-radius: 12px;
+    color: #991b1b;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.acc-reset:hover {
+    background: #fee2e2;
+}
+
+/* Focus visibility (keyboard) */
+:focus-visible {
+    outline: 3px solid #000 !important;
+    outline-offset: 3px !important;
+}
+
+/* Accessibility Modes (Applied to HTML element) */
+
+/* Invert */
+.acc-mode-invert {
+    filter: invert(100%) hue-rotate(180deg);
+}
+
+/* Un-invert media and the widget itself */
+.acc-mode-invert img,
+.acc-mode-invert video,
+.acc-mode-invert iframe,
+.acc-mode-invert .acc-trigger,
+.acc-mode-invert .acc-panel {
+    filter: invert(100%) hue-rotate(180deg) !important;
+}
+
+/* Grayscale */
+.acc-mode-grayscale {
+    filter: grayscale(100%);
+}
+
+/* High Contrast */
+.acc-mode-contrast body {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.acc-mode-contrast :not(.acc-panel, .acc-panel *, .acc-trigger, .acc-trigger *) {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+.acc-mode-contrast a {
+    color: #ffff00 !important;
+    text-decoration: underline !important;
+}
+
+/* Links */
+.acc-mode-links a {
+    text-decoration: underline !important;
+    background-color: #ffff00 !important;
+    color: #000 !important;
+    font-weight: 800 !important;
+}
+
+/* Font */
+.acc-mode-font * {
+    font-family: Arial, sans-serif !important;
+}
+
+/* Hide Images */
+.acc-mode-hide-images img,
+.acc-mode-hide-images video {
+    visibility: hidden !important;
+}
+
+/* Big Cursor */
+.acc-mode-cursor-big * {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' style='fill:black;stroke:white;stroke-width:2px;'><path d='M0 0 L20 40 L26 26 L40 20 Z'/></svg>") 0 0, auto !important;
+}
+
+/* Reduce Motion */
+.acc-mode-reduce-motion *,
+.acc-mode-reduce-motion *::before,
+.acc-mode-reduce-motion *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+}

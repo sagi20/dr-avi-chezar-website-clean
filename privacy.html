@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KGM3GLQ2');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מדיניות פרטיות ותנאי שימוש | ד"ר אבי שזר</title>
+    <meta name="description"
+        content="מדיניות הפרטיות ותנאי השימוש של אתר ד״ר אבי שזר. מידע מקיף על איסוף נתונים, אבטחת מידע, נגישות וזכויות המשתמש.">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Heebo:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <link rel="stylesheet" href="css/cookie-consent.css">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --privacy-bg: #eff6ff;
+            /* Softer blue-ish white */
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            /* Slate 700 */
+            --text-secondary: #64748b;
+            /* Slate 500 */
+            --border-color: #e2e8f0;
+            --primary-blue: #0f766e;
+            /* Teal 700 - Deep, professional */
+            --primary-dark: #0d9488;
+            /* Teal 600 */
+            --accent: #2dd4bf;
+            /* Teal 400 */
+        }
+
+        body {
+            background-color: var(--privacy-bg);
+            font-family: 'Assistant', sans-serif;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .privacy-header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 12rem 0 8rem;
+            /* Increased top padding to clear fixed header */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: -4rem;
+        }
+
+        .privacy-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(45, 212, 191, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.15) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .privacy-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .privacy-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #f0f9ff, #e0f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .privacy-header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+            color: #cbd5e1;
+        }
+
+        /* Main Container & Card */
+        .privacy-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .privacy-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            padding: 4rem;
+            margin-bottom: 5rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .last-updated {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Sections */
+        .policy-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            color: var(--primary-dark);
+            background: #f0fdfa;
+            /* Teal 50 */
+            padding: 0.8rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(13, 148, 136, 0.1);
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+            color: #1e293b;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .policy-content {
+            color: var(--text-main);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            padding-right: 4rem;
+            /* Indent content under title */
+        }
+
+        .policy-content p {
+            margin-bottom: 1.2rem;
+        }
+
+        /* Lists */
+        .policy-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .policy-content li {
+            position: relative;
+            padding-right: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-content li::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-dark);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.2);
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: linear-gradient(to left, #f8fafc, #f1f5f9);
+            border-right: 5px solid var(--primary-dark);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-box strong {
+            display: block;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: #0f172a;
+        }
+
+        /* Header Specifics for Privacy Page */
+        .mobile-toggle {
+            display: none;
+            /* Hidden by default on desktop */
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary-blue);
+            line-height: 1;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        @media (max-width: 768px) {
+            .privacy-header {
+                padding: 10rem 0 6rem;
+                /* More space on mobile too */
+            }
+
+            .privacy-header h1 {
+                font-size: 2rem;
+                padding: 0 1rem;
+            }
+
+            .privacy-card {
+                padding: 2rem 1.5rem;
+                margin-top: -3rem;
+                margin-bottom: 2rem;
+                border-radius: 16px;
+            }
+
+            .policy-content {
+                padding-right: 0;
+                font-size: 1rem;
+            }
+
+            /* nav-menu override removed to allow global style.css logic */
+
+            .mobile-toggle {
+                display: block;
+                /* Show hamburger on mobile */
+            }
+
+            .header-container {
+                justify-content: space-between;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "מדיניות פרטיות ותנאי שימוש | ד\"ר אבי שזר",
+      "description": "מדיניות הפרטיות ותנאי השימוש של אתר ד״ר אבי שזר. מידע מקיף על איסוף נתונים, אבטחת מידע, נגישות וזכויות המשתמש.",
+      "url": "https://www.catef4u.com/privacy.html",
+      "inLanguage": "he"
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGM3GLQ2" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">C4U</a>
+
+            <!-- Desktop Nav -->
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">דף הבית</a>
+                <a href="index.html#services" class="nav-link">תחומי טיפול</a>
+                <a href="dr-chezar.html" class="nav-link">אודות</a>
+                <a href="shoulder-anatomy.html" class="nav-link">אנטומיה</a>
+                <a href="index.html#contact" class="btn btn-primary" style="padding: 0.5rem 1.2rem; height: auto;">צור
+                    קשר</a>
+            </nav>
+
+            <!-- Mobile Toggle -->
+            <button class="mobile-toggle" aria-label="תפריט">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="privacy-header">
+        <div class="container">
+            <h1>מדיניות פרטיות ותנאי שימוש</h1>
+            <p>אנו מחויבים לשקיפות מלאה ולהגנה על המידע האישי של המשתמשים באתר, בהתאם להוראות הדין החל במדינת ישראל.</p>
+        </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumb-container" dir="rtl">
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/index.html">
+                        <span itemprop="name">בית</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name">מדיניות פרטיות</span>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="privacy-container">
+        <div class="privacy-card">
+            <div class="last-updated">
+                עודכן לאחרונה: <strong>דצמבר 2025</strong>
+            </div>
+
+            <!-- 1. General -->
+            <div class="policy-section">
+                <div class="section-title">
+                    <div class="section-icon"><i data-lucide="shield"></i></div>
+                    <h2>1. כללי</h2>
+                </div>
+                <div class="policy-content">
+                    <p>מרפאת ד"ר אבי שזר (להלן: "המרפאה", "האתר", "אנו") מכבדת את פרטיות המשתמשים באתר האינטרנט המופעל
+                        על ידה ופועלת בהתאם להוראות <strong>חוק הגנת הפרטיות, התשמ״א-1981</strong>, והתקנות שהותקנו
+                        מכוחו.</p>
+                    <p>מטרת מסמך זה היא להבהיר את מדיניות הפרטיות ואת תנאי השימוש באתר, לרבות אופן איסוף המידע, השימוש
+                        בו, שמירתו והגנתו.</p>
+                    <p>השימוש באתר ו/או גלישה בו מהווים הסכמה מצד המשתמש לתנאים המפורטים במסמך זה.</p>
+                </div>
+            </div>
+
+            <!-- 2. Data Collection -->
+            <div class="policy-section">
+                <div class="section-title">
+                    <div class="section-icon"><i data-lucide="database"></i></div>
+                    <h2>2. איסוף ושימוש במידע</h2>
+                </div>
+                <div class="policy-content">
+                    <p>בעת השימוש באתר, המרפאה עשויה לאסוף ולעבד את סוגי המידע הבאים:</p>
+
+                    <p><strong>א. מידע הנמסר מרצון על ידי המשתמש</strong><br>
+                        פרטים אישיים כגון שם, מספר טלפון, כתובת דואר אלקטרוני ותוכן הפנייה, הנמסרים בעת מילוי טפסי יצירת
+                        קשר או פנייה באמצעות דוא"ל או יישום WhatsApp.<br>
+                        מומלץ להימנע ממסירת מידע רפואי רגיש שאינו נדרש לצורך תיאום פגישה או מענה ראשוני.</p>
+
+                    <p><strong>אין חובה חוקית למסור מידע אישי בעת השימוש באתר.</strong><br>
+                        עם זאת, אי־מסירת פרטים מסוימים עשויה למנוע מהמרפאה אפשרות לחזור אל הפונה, להשיב לפנייה או לתאם
+                        פגישה.</p>
+
+                    <p><strong>ב. מידע טכני וסטטיסטי</strong><br>
+                        נתונים הנאספים באופן אוטומטי באמצעות כלים כגון Google Analytics ו-Google Tag Manager, לרבות
+                        כתובת IP, סוג דפדפן, מערכת הפעלה, זמני שהייה באתר ודפים נצפים.<br>
+                        מידע זה נאסף לצורכי מדידה, אבטחה ושיפור חוויית המשתמש, והוא אינו מיועד לזיהוי אישי ישיר.</p>
+                </div>
+            </div>
+
+            <!-- 3. Cookies -->
+            <div class="policy-section">
+                <div class="section-title">
+                    <div class="section-icon"><i data-lucide="cookie"></i></div>
+                    <h2>3. עוגיות (Cookies) וטכנולוגיות מעקב</h2>
+                </div>
+                <div class="policy-content">
+                    <p>האתר עושה שימוש בקובצי Cookies ובטכנולוגיות דומות לצורך תפעולו התקין, אבטחתו, איסוף נתונים
+                        סטטיסטיים והתאמת חוויית השימוש באתר.</p>
+                    <p>האתר עושה שימוש גם בשירותי צד שלישי כגון Google Analytics ו-Google Tag Manager, אשר עשויים להציב
+                        עוגיות מטעמם. השימוש במידע על ידי גופים אלה כפוף למדיניות הפרטיות שלהם.</p>
+                    <p>באפשרות המשתמש לחסום או למחוק עוגיות באמצעות הגדרות הדפדפן. יובהר כי חסימת עוגיות מסוימות עלולה
+                        לפגוע בפונקציונליות האתר או בחוויית השימוש בו.</p>
+                    <p>ככל שקיים באתר מנגנון לניהול הסכמות – ניתן לשנות את העדפות העוגיות בכל עת.</p>
+                    <p><strong>עוגיות שאינן חיוניות לתפעול הבסיסי של האתר</strong> (לרבות עוגיות מדידה, אנליטיקה או
+                        פרסום) <strong>יופעלו רק לאחר קבלת הסכמה אקטיבית ומפורשת של המשתמש</strong>, ככל שנדרש על פי דין
+                        ובהתאם למנגנון ניהול ההסכמות באתר.</p>
+                </div>
+            </div>
+
+            <!-- 4. Data Security -->
+            <div class="policy-section">
+                <div class="section-title">
+                    <div class="section-icon"><i data-lucide="lock"></i></div>
+                    <h2>4. אבטחת מידע</h2>
+                </div>
+                <div class="policy-content">
+                    <p>המרפאה מיישמת אמצעים סבירים ומקובלים לאבטחת המידע הנאסף באתר, לרבות אמצעים טכנולוגיים וארגוניים,
+                        בהתאם לתקנות הגנת הפרטיות (אבטחת מידע), במטרה לצמצם סיכונים של גישה בלתי-מורשית, אובדן או שימוש
+                        לרעה במידע.</p>
+                    <p>עם זאת, אין באפשרות המרפאה להבטיח אבטחה מוחלטת של המידע, והמרפאה אינה מתחייבת כי שירותי האתר יהיו
+                        חסינים באופן מלא מפני חדירות או תקלות.</p>
+                </div>
+            </div>
+
+            <!-- 5. Third Parties -->
+            <div class="policy-section">
+                <div class="section-title">
+                    <div class="section-icon"><i data-lucide="share-2"></i></div>
+                    <h2>5. מסירת מידע לצדדים שלישיים</h2>
+                </div>
+                <div class="policy-content">
+                    <p>המרפאה אינה מוכרת, משכירה או מעבירה מידע אישי לצדדים שלישיים, למעט במקרים הבאים:</p>
+                    <ul>
+                        <li>אם הדבר נדרש לשם ניהול מחלוקת משפטית או הגנה על זכויות המרפאה</li>
+                        <li>אם המשתמש ביצע באתר פעולות בניגוד לדין</li>
+                        <li>אם יתקבל צו שיפוטי או דרישה חוקית המחייבת מסירת מידע</li>
+                        <li>לספקים ונותני שירותים המסייעים בתפעול האתר (כגון אחסון, אבטחה או שירותי מדידה), וזאת בכפוף
+                            להתחייבותם לשמירה על סודיות המידע</li>
+                    </ul>
+                    <p>ייתכן שחלק מהמידע יעובד או יאוחסן בשרתים מחוץ לישראל, לרבות על ידי ספקים בינלאומיים.</p>
+                </div>
+            </div>
+
+            <!-- 6. User Rights -->
+            <div class="policy-section">
+                <div class="section-title">
+                    <div class="section-icon"><i data-lucide="user-check"></i></div>
+                    <h2>6. זכות לעיון במידע, תיקון ומחיקה</h2>
+                </div>
+                <div class="policy-content">
+                    <p>בהתאם לחוק הגנת הפרטיות, כל אדם זכאי לעיין במידע המוחזק עליו במאגרי מידע, וכן לבקש תיקון או מחיקה
+                        של מידע שאינו נכון, שלם, ברור או מעודכן.</p>
+                    <p>פניות בנושא זה ניתן להפנות לכתובת הדוא"ל המופיעה בסעיף יצירת קשר.</p>
+                </div>
+            </div>
+
+            <!-- 7. Accessibility -->
+            <div class="policy-section">
+                <div class="section-title">
+                    <div class="section-icon"><i data-lucide="accessibility"></i></div>
+                    <h2>7. הצהרת נגישות</h2>
+                </div>
+                <div class="policy-content">
+                    <p>המרפאה רואה חשיבות רבה במתן שירות שוויוני ונגיש לכלל הגולשים.<br>
+                        האתר פועל בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), תשע״ג-2013,
+                        ובהתאם להנחיות תקן WCAG ברמת AA.</p>
+                    <p>במקרה של קושי בגלישה או בצפייה בתוכן – ניתן לפנות למרפאה באמצעות פרטי הקשר המופיעים באתר, ואנו
+                        נפעל לטיפול בפנייה בתוך זמן סביר.<br>
+                        הצהרת נגישות זו עודכנה לאחרונה בדצמבר 2025.</p>
+                </div>
+            </div>
+
+            <!-- 8. Medical Disclaimer -->
+            <div class="policy-section">
+                <div class="section-title">
+                    <div class="section-icon"><i data-lucide="alert-triangle"></i></div>
+                    <h2>8. הבהרה משפטית רפואית</h2>
+                </div>
+                <div class="policy-content">
+                    <p>המידע המופיע באתר נועד למידע כללי בלבד ואינו מהווה ייעוץ רפואי, אבחנה, חוות דעת מקצועית או תחליף
+                        להתייעצות עם רופא.</p>
+                    <p>אין להסתמך על המידע באתר לצורך אבחון או טיפול רפואי, ואין להשתמש בו לצורך אבחון עצמי.<br>
+                        בכל מקרה של בעיה רפואית יש לפנות לרופא המטפל, ובמקרה חירום – למד״א (101) או לחדר מיון.</p>
+                    <p>השימוש באתר וההסתמכות על המידע שבו הם באחריות המשתמש בלבד, ואין באמור באתר כדי ליצור יחסי
+                        רופא–מטופל.<br>
+                        <strong>אין במידע באתר משום התחייבות לתוצאה רפואית כלשהי.</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- 9. Jurisdiction -->
+            <div class="policy-section">
+                <div class="section-title">
+                    <div class="section-icon"><i data-lucide="gavel"></i></div>
+                    <h2>9. דין חל וסמכות שיפוט</h2>
+                </div>
+                <div class="policy-content">
+                    <p>על תנאים אלה, מדיניות הפרטיות והשימוש באתר יחולו <strong>דיני מדינת ישראל בלבד</strong>.<br>
+                        סמכות השיפוט המקומית והעניינית בכל מחלוקת הנוגעת לשימוש באתר זה, לתוכנו או לתנאים אלה, תהא נתונה
+                        <strong>לבתי המשפט המוסמכים בעיר חיפה בלבד</strong>, אלא אם נקבע אחרת על פי דין שאינו ניתן
+                        להתניה.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 10. Contact -->
+            <div class="policy-section" id="contact-info">
+                <div class="section-title">
+                    <div class="section-icon"><i data-lucide="mail"></i></div>
+                    <h2>10. יצירת קשר</h2>
+                </div>
+                <div class="policy-content">
+                    <p>בכל שאלה, בקשה או פנייה הנוגעת למדיניות פרטיות זו או לשימוש באתר, ניתן לפנות אלינו:</p>
+                    <div class="contact-box">
+                        <strong>ד"ר אבי שזר – מרפאת מומחים</strong>
+                        טלפון: 052-4224623<br>
+                        דוא"ל: <a href="mailto:chezarmd@gmail.com">chezarmd@gmail.com</a><br>
+                        כתובת: אסותא חיפה / RMC עפולה
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Brand & Intro -->
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">C4U<span style="font-weight: 400; font-size: 0.8em;"> | אתר הכתף
+                            של ד"ר אבי שזר</span></a>
+                    <p class="footer-intro-text">
+                        ד"ר אבי שזר, מומחה אורתופד בכיר בתחום הכתף ומובילי תחום ניתוחי הכתף בארץ. רופא בכיר במרכז הרפואי
+                        כרמל, חיפה.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/dr.avi.chezar" class="social-icon-btn facebook"
+                            target="_blank">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                        <a href="https://youtu.be/bFv-mnuJKDA?si=VEiZm3zSIuXeNeTV" class="social-icon-btn youtube"
+                            target="_blank">
+                            <i data-lucide="youtube"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dr.avi_chezar" class="social-icon-btn instagram"
+                            target="_blank">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4>קישורים מהירים</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">תחומי טיפול</a></li>
+                        <li><a href="dr-chezar.html">אודות</a></li>
+                        <li><a href="shoulder-anatomy.html">אנטומיה של הכתף</a></li>
+                        <li><a href="medical-guide.html">לכל דפי המידע (אינדקס רפואי)</a></li>
+                        <li><a href="achievements.html">הישגים והוקרה</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact & Hours -->
+                <div>
+                    <h4>פרטי קשר</h4>
+                    <div class="footer-contact-info">
+                        <div class="footer-contact-item">
+                            <i data-lucide="phone" class="footer-contact-icon"></i>
+                            <div>
+                                <div style="font-weight: 600; color: white;">052-4224623</div>
+                                <div style="font-size: 0.9rem; color: rgba(255,255,255,0.5);">מענה טלפוני וקביעת תורים
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i data-lucide="mail" class="footer-contact-icon"></i>
+                            <div>chezarmd@gmail.com</div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i data-lucide="map-pin" class="footer-contact-icon"></i>
+                            <div>אסותא חיפה | RMC עפולה</div>
+                        </div>
+                    </div>
+
+                    <div class="footer-hours-group">
+                        <div class="footer-hours-title">
+                            <i data-lucide="clock" style="width: 16px;"></i>
+                            <span>שעות קבלה</span>
+                        </div>
+                        <div class="footer-hours-row">
+                            <span>אסותא חיפה:</span>
+                            <span>א" 09:00-15:00, ד" 16:00-20:00</span>
+                        </div>
+                        <div class="footer-hours-row">
+                            <span>RMC עפולה:</span>
+                            <span>ג" 14:30-19:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="footer-disclaimer"
+                    style="font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; line-height: 1.5; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1.5rem; text-align: center;">
+                    המידע המופיע באתר נועד למידע כללי בלבד ואינו מהווה ייעוץ רפואי, אבחנה, חוות דעת מקצועית או תחליף
+                    להתייעצות עם רופא. בכל מקרה של בעיה רפואית יש לפנות לרופא המטפל, ובמקרה חירום יש לפנות למד״א או לחדר
+                    מיון. השימוש באתר וההסתמכות על המידע שבו הם באחריות המשתמש בלבד.
+                </div>
+                <div class="footer-legal-links">
+                    <a href="index.html#contact">צור קשר</a>
+                    <a href="privacy.html">מדיניות פרטיות</a>
+                    <a href="accessibility.html">הצהרת נגישות</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2025 ד"ר אבי שזר. כל הזכויות שמורות.
+                </div>
+                <div class="footer-english-desc">
+                    Dr. Avi Chezar is a leading Orthopedic surgeon and Shoulder specialist in Israel
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

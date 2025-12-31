@@ -1,0 +1,78 @@
+# Netlify Redirects
+# Syntax: /old-path /new-path 301
+
+# =========================
+# Category hubs (CRITICAL)
+# =========================
+/ניתוחים/                                              /medical-guide.html 301
+/%D7%A0%D7%99%D7%AA%D7%95%D7%97%D7%99%D7%9D/          /medical-guide.html 301
+/בעיות-שכיחות-בכתף/                                   /medical-guide.html 301
+/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/ /medical-guide.html 301
+
+# =========================
+# Common Shoulder Problems
+# =========================
+/בעיות-שכיחות-בכתף/פריקת-עצם-הבריח/*                   /clavicle-dislocation.html 301
+/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A4%D7%A8%D7%99%D7%A7%D7%AA-%D7%A2%D7%A6%D7%9D-%D7%94%D7%91%D7%A8%D7%99%D7%97/* /clavicle-dislocation.html 301
+/בעיות-שכיחות-בכתף/הסתיידויות-בגידים/*                 /calcific-tendonitis.html 301
+/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%94%D7%A1%D7%AA%D7%99%D7%99%D7%93%D7%95%D7%99%D7%95%D7%AA-%D7%91%D7%92%D7%99%D7%93%D7%99%D7%9D/* /calcific-tendonitis.html 301
+/בעיות-שכיחות-בכתף/קרעים-בשרוול-המסובב/*                /rotator-cuff-tears.html 301
+/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A7%D7%A8%D7%A2%D7%99%D7%9D-%D7%91%D7%A9%D7%A8%D7%95%D7%95%D7%9C-%D7%94%D7%9E%D7%A1%D7%95%D7%91%D7%91/* /rotator-cuff-tears.html 301
+/בעיות-שכיחות-בכתף/פריקות-חוזרות/*                      /shoulder-instability.html 301
+/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A4%D7%A8%D7%99%D7%A7%D7%95%D7%AA-%D7%97%D7%95%D7%96%D7%A8%D7%95%D7%AA/* /shoulder-instability.html 301
+/בעיות-שכיחות-בכתף/כתף-קפואה/*                          /frozen-shoulder.html 301
+/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%91%D7%AA%D7%A3-%D7%A7%D7%A4%D7%95%D7%90%D7%94/* /frozen-shoulder.html 301
+/בעיות-שכיחות-בכתף/שחיקת-הסחוס-במפרק/*                  /shoulder-osteoarthritis.html 301
+/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A9%D7%97%D7%99%D7%A7%D7%AA-%D7%94%D7%A1%D7%97%D7%95%D7%A1-%D7%91%D7%9E%D7%A4%D7%A8%D7%A7/* /shoulder-osteoarthritis.html 301
+# biceps – correct spelling (בייספס)
+/בעיות-שכיחות-בכתף/קרע-ראש-ארוך-של-בייספס/*             /biceps-tear.html 301
+/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A7%D7%A8%D7%A2-%D7%A8%D7%90%D7%A9-%D7%90%D7%A8%D7%95%D7%9A-%D7%A9%D7%9C-%D7%91%D7%99%D7%99%D7%A1%D7%A4%D7%A1/* /biceps-tear.html 301
+# biceps – legacy spelling variation (ביצפס)
+/בעיות-שכיחות-בכתף/קרע-ראש-ארוך-של-ביצפס/*              /biceps-tear.html 301
+/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A7%D7%A8%D7%A2-%D7%A8%D7%90%D7%A9-%D7%90%D7%A8%D7%95%D7%9A-%D7%A9%D7%9C-%D7%91%D7%99%D7%A6%D7%A4%D7%A1/* /biceps-tear.html 301
+/בעיות-שכיחות-בכתף/קרע-בלברום-העליון-slap/*             /slap-tear.html 301
+/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A7%D7%A8%D7%A2-%D7%91%D7%9C%D7%91%D7%A8%D7%95%D7%9D-%D7%94%D7%A2%D7%9C%D7%99%D7%95%D7%9F-slap/* /slap-tear.html 301
+/בעיות-שכיחות-בכתף/שברים-בכתף-עצם-הזרוע/*               /humerus-fracture.html 301
+/%D7%91%D7%A2%D7%99%D7%95%D7%AA-%D7%A9%D7%9B%D7%99%D7%97%D7%95%D7%AA-%D7%91%D7%9B%D7%AA%D7%A3/%D7%A9%D7%91%D7%A8%D7%99%D7%9D-%D7%91%D7%9B%D7%AA%D7%A3-%D7%A2%D7%A6%D7%9D-%D7%94%D7%96%D7%A8%D7%95%D7%A2/* /humerus-fracture.html 301
+
+# =========================
+# Surgeries
+# =========================
+/ניתוחים/ארטרוסקופיה-של-הכתף/*                          /shoulder-arthroscopy.html 301
+/%D7%A0%D7%99%D7%AA%D7%95%D7%97%D7%99%D7%9D/%D7%90%D7%A8%D7%98%D7%A8%D7%95%D7%A1%D7%A7%D7%95%D7%A4%D7%99%D7%94-%D7%A9%D7%9C-%D7%94%D7%9B%D7%AA%D7%A3/* /shoulder-arthroscopy.html 301
+/ניתוחים/פריקות-חוזרות-ניתוח-לתפירת-לברום/*             /bankart-repair.html 301
+/%D7%A0%D7%99%D7%AA%D7%95%D7%97%D7%99%D7%9D/%D7%A4%D7%A8%D7%99%D7%A7%D7%95%D7%AA-%D7%97%D7%95%D7%96%D7%A8%D7%95%D7%AA-%D7%A0%D7%99%D7%AA%D7%95%D7%97-%D7%9C%D7%AA%D7%A4%D7%99%D7%A8%D7%AA-%D7%9C%D7%91%D7%A8%D7%95%D7%9D/* /bankart-repair.html 301
+/ניתוחים/טיפול-בפריקות-חוזרות-ניתוח-לטרזה/*             /latarjet-procedure.html 301
+/%D7%A0%D7%99%D7%AA%D7%95%D7%97%D7%99%D7%9D/%D7%9 Victorian-D7%99%D7%A4%D7%95%D7%9C-%D7%91%D7%A4%D7%A8%D7%99%D7%A7%D7%95%D7%AA-%D7%97%D7%95%D7%96%D7%A8%D7%95%D7%AA-%D7%A0%D7%99%D7%AA%D7%95%D7%97-%D7%9C%D7%98%D7%A8%D7%96%D7%94/* /latarjet-procedure.html 301
+/ניתוחים/תיקון-קרע-בגידים-שרוול-מסובב/*                 /rotator-cuff-repair.html 301
+/%D7%A0%D7%99%D7%AA%D7%95%D7%97%D7%99%D7%9D/%D7%AA%D7%99%D7%A7%D7%95%D7%9F-%D7%A7%D7%A8%D7%A2-%D7%91%D7%92%D7%99%D7%93%D7%99%D7%9D-%D7%A9%D7%A8%D7%95%D7%95%D7%9C-%D7%9E%D7%A1%D7%95%D7%91%D7%91/* /rotator-cuff-repair.html 301
+/ניתוחים/קיבוע-שבר-בכתף-בעזרת-פלטה-וברגים/*              /fracture-fixation.html 301
+/%D7%A0%D7%99%D7%AA%D7%95%D7%97%D7%99%D7%9D/%D7%A7%D7%99%D7%91%D7%95%D7%A2-%D7%A9%D7%91%D7%A8-%D7%91%D7%9B%D7%AA%D7%A3-%D7%91%D7%A2%D7%96%D7%A8%D7%AA-%D7%A4%D7%9C%D7%98%D7%94-%D7%95%D7%91%D7%A8%D7%92%D7%99%D7%9D/* /fracture-fixation.html 301
+/ניתוחים/טיפול-בשבר-בכתף-החלפת-מפרק-חלקית/*              /partial-shoulder-replacement.html 301
+/%D7%A0%D7%99%D7%AA%D7%90%D7%95%D7%97%D7%99%D7%9D/%D7%98%D7%99%D7%A4%D7%95%D7%9C-%D7%91%D7%A9%D7%91%D7%A8-%D7%91%D7%9B%D7%AA%D7%A3-%D7%94%D7%97%D7%9C%D7%A4%D7%AA-%D7%9E%D7%A4%D7%A8%D7%A7-%D7%97%D7%9C%D7%A7%D7%99%D7%AA/* /partial-shoulder-replacement.html 301
+/ניתוחים/טיפול-בשבר-בכתף-החלפת-מפרק-הפוכה/*              /reverse-shoulder-fracture.html 301
+/%D7%A0%D7%99%D7%AA%D7%90%D7%95%D7%97%D7%99%D7%9D/%D7%98%D7%99%D7%A4%D7%95%D7%9C-%D7%91%D7%A9%D7%91%D7%A8-%D7%91%D7%9B%D7%AA%D7%A3-%D7%94%D7%97%D7%9C%D7%A4%D7%AA-%D7%9E%D7%A4%D7%A8%D7%A7-%D7%94%D7%A4%D7%95%D7%9B%D7%94/* /reverse-shoulder-fracture.html 301
+/ניתוחים/החלפת-מפרק-כתף-הפוכה/*                          /reverse-shoulder-replacement.html 301
+/%D7%A0%D7%99%D7%AA%D7%90%D7%95%D7%97%D7%99%D7%9D/%D7%94%D7%97%D7%9C%D7%A4%D7%AA-%D7%9E%D7%A4%D7%A8%D7%A7-%D7%9B%D7%AA%D7%A3-%D7%94%D7%A4%D7%95%D7%9B%D7%94/* /reverse-shoulder-replacement.html 301
+
+# =========================
+# General
+# =========================
+/צור-קשר/*                                              /index.html 301
+/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8/*                 /index.html 301
+/אודות/*                                                /dr-chezar.html 301
+/%D7%90%D7%95%D7%93%D7%95%D7%AA/*                        /dr-chezar.html 301
+
+# Info Page Redirect (Catch-all for bare info-page.html)
+/info-page.html  /index.html  301
+
+# Anatomy
+/אנטומיה-של-הכתף/*  /shoulder-anatomy.html  301
+/%D7%90%D7%A0%D7%98%D7%95%D7%9E%D7%99%D7%94-%D7%A9%D7%9C-%D7%94%D7%9B%D7%AA%D7%A3/* /shoulder-anatomy.html 301
+
+# GHtracker
+/playing/GHtracker/*  /index.html  301
+
+# Fallback
+/*  /404.html  404
+

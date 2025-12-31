@@ -14,6 +14,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Smooth Scrolling Implementation ---
+    menuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+
+            // Check if it's an anchor link
+            if (href.includes('#')) {
+                const parts = href.split('#');
+                const targetPage = parts[0];
+                const targetId = parts[1];
+
+                // Get current page name (handle root as index.html)
+                let currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                if (currentPage === '/' || currentPage === '') currentPage = 'index.html';
+
+                // Check if target is on the current page
+                const isCurrentPage = targetPage === "" ||
+                    targetPage === currentPage ||
+                    (targetPage === 'index.html' && currentPage === 'index.html');
+
+                if (isCurrentPage) {
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+
+                        // Smooth scroll with offset for header/menu
+                        const headerOffset = 100;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // Update URL hash without refresh
+                        history.pushState(null, null, `#${targetId}`);
+
+                        // Explicitly set active state manually for immediate feedback
+                        menuLinks.forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                }
+            }
+        });
+    });
+    // ----------------------------------------
+
     function setActiveLink() {
         let currentPath = window.location.pathname.split('/').pop() || 'index.html';
         const currentHash = window.location.hash;

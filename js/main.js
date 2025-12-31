@@ -1182,9 +1182,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initialize Content Center Grid (if on content-center.html)
         // This runs independently, not tied to shuffleBtn
-        if (window.location.pathname.includes('content-center.html')) {
-            const contentGrid = document.getElementById('feedGrid');
-            if (contentGrid && postsPool.length > 0) {
+        const contentGrid = document.getElementById('feedGrid');
+        if (contentGrid) {
+            if (postsPool.length > 0) {
                 contentGrid.innerHTML = postsPool.map((post, index) => {
                     const slideUrls = post.slides.join(',');
                     return `

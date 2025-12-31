@@ -1375,7 +1375,7 @@ function loadInfoPage() {
             const prevKey = topicOrder[currentIndex - 1];
             const prevTitle = medicalContent[prevKey].title;
             navHTML += `
-                <a href="info-page.html?topic=${prevKey}" class="nav-btn prev-btn">
+                <a href="${topicMapping[prevKey]}" class="nav-btn prev-btn">
                     <i data-lucide="arrow-right"></i>
                     <div class="nav-text">
                         <span class="nav-label">למאמר הקודם</span>
@@ -1392,7 +1392,7 @@ function loadInfoPage() {
             const nextKey = topicOrder[currentIndex + 1];
             const nextTitle = medicalContent[nextKey].title;
             navHTML += `
-                <a href="info-page.html?topic=${nextKey}" class="nav-btn next-btn">
+                <a href="${topicMapping[nextKey]}" class="nav-btn next-btn">
                     <div class="nav-text">
                         <span class="nav-label">למאמר הבא</span>
                         <span class="nav-title">${nextTitle}</span>

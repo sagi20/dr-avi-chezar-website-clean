@@ -5,11 +5,11 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8TW3YDW68"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'G-J8TW3YDW68');
+        gtag('config', 'G-J8TW3YDW68');
     </script>
 
     <!-- Google Tag Manager -->
@@ -399,9 +399,16 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/css/style.css?v=3">
 
-    <link rel="stylesheet" href="css/accessibility.css">
-    <link rel="stylesheet" href="css/cookie-consent.css">
-    <link rel="stylesheet" href="css/side-menu.css">
+    <!-- Defer non-critical CSS -->
+    <link rel="stylesheet" href="css/accessibility.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/cookie-consent.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/side-menu.css" media="print" onload="this.media='all'">
+
+    <noscript>
+        <link rel="stylesheet" href="css/accessibility.css">
+        <link rel="stylesheet" href="css/cookie-consent.css">
+        <link rel="stylesheet" href="css/side-menu.css">
+    </noscript>
     <style>
         /* Accessibility Tool Styles */
         :root {
@@ -930,7 +937,7 @@
                     <picture class="dr-hero-img-picture">
                         <source media="(max-width: 768px)" srcset="images/dr_shezer_white.webp">
                         <img src="images/dr_shezer_white.webp" width="462" height="452" fetchpriority="high"
-                            alt="ד״ר אבי שזר, אורטופד מומחה לכתף ולמרפק" class="hero-image">
+                            loading="eager" alt="ד״ר אבי שזר, אורטופד מומחה לכתף ולמרפק" class="hero-image">
                     </picture>
 
                     <!-- Forbes Badge -->
